@@ -6,18 +6,29 @@ import PackageDescription
 let package = Package(
     name: "Avalon",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v12),
     ],
     products: [
-        .library(name: "Avalon",
-                 targets: ["Avalon"]),
+        .library(
+            name: "Avalon",
+            targets: [
+                "AvalonExtensionOC",
+                "AvalonExtensionSwift"
+            ]),
     ],
     dependencies: [
         
     ],
     targets: [
-        .target(name: "Avalon"),
-        .testTarget(name: "AvalonTests",
-                    dependencies: ["Avalon"]),
+        .target(name: "AvalonExtensionOC",
+                path: "Sources/Extension/OC"),
+        .target(name: "AvalonExtensionSwift",
+                path: "Sources/Extension/Swift"),
+        .testTarget(
+            name: "AvalonTests",
+            dependencies: [
+                "AvalonExtensionSwift",
+                "AvalonExtensionOC",
+            ]),
     ]
 )

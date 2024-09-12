@@ -1,0 +1,30 @@
+{
+  "name": "TestGroup",
+  "type": "directory",
+  "contents": [
+{
+      "name": "TestUILabel",
+      "type": "directory",
+      "contents": [
+        {
+          "name": "TestUILabel1VC.swift",
+          "type": "file"
+        }
+
+      ]
+    }
+,
+{
+      "name": "TestUIView",
+      "type": "directory",
+      "contents": [
+        {
+          "name": "TestUIView1VC.swift",
+          "type": "file"
+        }
+
+      ]
+    }
+
+  ]
+}

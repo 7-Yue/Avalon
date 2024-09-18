@@ -1,7 +1,5 @@
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 typedef NS_ENUM(NSInteger, ALAssociationPolicy) {
     ALAssociationPolicy_Assign              = 1,
     ALAssociationPolicy_Weak                = 2,
@@ -31,15 +29,13 @@ FOUNDATION_EXTERN void SwizzleMethod(Class _Nonnull cls,
 ///   - key: 关联key
 ///   - policy: 关联策略
 - (void)al_setAssociatedValue:(id _Nullable) value
-                       key:(NSString * _Nonnull) key
-                    policy:(ALAssociationPolicy) policy NS_SWIFT_UNAVAILABLE("仅OC可用");
+                          key:(NSString * _Nonnull) key
+                       policy:(ALAssociationPolicy) policy NS_SWIFT_UNAVAILABLE("仅OC可用");
 
 
 /// 获取关联值
 /// - Parameter key: 关联key
 - (id _Nullable)al_getAssociatedValueWithKey:(NSString * _Nonnull) key NS_SWIFT_UNAVAILABLE("仅OC可用");
 
-
 @end
 
-NS_ASSUME_NONNULL_END

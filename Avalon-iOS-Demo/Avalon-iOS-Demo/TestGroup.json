@@ -19,7 +19,17 @@
       "type": "directory",
       "contents": [
         {
-          "name": "TestUIView1VC.swift",
+          "name": "TestUIViewOCVC.h",
+          "type": "file"
+        }
+,
+        {
+          "name": "TestUIViewOCVC.m",
+          "type": "file"
+        }
+,
+        {
+          "name": "TestUIViewSwiftVC.swift",
           "type": "file"
         }
 

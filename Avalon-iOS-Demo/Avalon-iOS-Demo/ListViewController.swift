@@ -6,7 +6,7 @@ import SnapKit
 class ListViewController: UIViewController {
     
     init(item: FileItem) {
-        self.dataList = item.contents?.filter({ $0.name.contains("Test")}) ?? [FileItem]()
+        self.dataList = item.contents?.filter({ $0.name.contains("Test") && ($0.name.hasSuffix(".h") || $0.name.hasSuffix(".swift")) }) ?? [FileItem]()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,7 +44,7 @@ extension ListViewController: UITableViewDelegate {
             let vc = ListViewController(item: i)
             self.navigationController?.pushViewController(vc, animated: true)
         } else if self.dataList[indexPath.row].type == .file {
-            let vcName = self.dataList[indexPath.row].name.replacingOccurrences(of: ".swift", with: "")
+            let vcName = self.dataList[indexPath.row].name.replacingOccurrences(of: ".swift", with: "").replacingOccurrences(of: ".h", with: "")
             let name = Bundle.main.infoDictionary?["CFBundleName"] as? String ?? ""
 //            let wholeName = "\(name).\(vcName)"
 //            let other = wholeName.replacingOccurrences(of: "-", with: "_")

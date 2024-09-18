@@ -1,7 +1,5 @@
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 typedef NS_OPTIONS(NSUInteger, ALViewCorner) {
     ALViewCornerEmpty       = 0,
     ALViewCornerTopLeft     = 1 << 0,
@@ -14,8 +12,18 @@ typedef NS_OPTIONS(NSUInteger, ALViewCorner) {
                               ALViewCornerBottomRight
 } NS_SWIFT_UNAVAILABLE("仅OC可用");
 
+typedef NS_ENUM(NSUInteger, ALGradientLayerType) {
+    ALGradientLayerTypeAxial = 1,
+    ALGradientLayerTypeRadial = 2,
+    ALGradientLayerTypeConic = 3,
+} NS_SWIFT_UNAVAILABLE("仅OC可用");
+
 
 @interface UIView (Extension)
+
+- (void(^ _Nullable)(void))al_layoutCallback;
+
+- (void)setAl_layoutCallback:(void(^ _Nonnull)(void))callback;
 
 /// 全圆角
 /// - Parameters:
@@ -48,26 +56,17 @@ typedef NS_OPTIONS(NSUInteger, ALViewCorner) {
                          opacity:(CGFloat) opacity
                             path:(UIBezierPath *_Nullable) path NS_SWIFT_UNAVAILABLE("仅OC可用");
 
-
-/// 阴影+圆角
+/// 渐变色
 /// - Parameters:
-///   - corners: 圆角类型
-///   - cornerRadius: 圆角弧度
-///   - masksToBounds: 是否裁切
-///   - color: 阴影颜色
-///   - offset: 阴影偏移
-///   - shadowRadius: 阴影半径
-///   - opacity: 阴影不透明度
-///   - path: 阴影路径
-- (void)al_configCornerAndShadowWithCorners:(ALViewCorner) corners
-                               cornerRadius:(CGFloat) cornerRadius
-                              masksToBounds:(BOOL) masksToBounds
-                                      color:(UIColor *_Nullable) color
-                                     offset:(CGSize) offset
-                               shadowRadius:(CGFloat) shadowRadius
-                                    opacity:(CGFloat) opacity
-                                       path:(UIBezierPath *_Nullable) path NS_SWIFT_UNAVAILABLE("仅OC可用");
+///   - colors: 颜色
+///   - locations: 位置
+///   - startPoint: 起点
+///   - endPoint: 终点
+///   - type: 样式
+- (void)al_configGradientAndColors:(NSArray<UIColor *> *_Nullable) colors
+                         locations:(NSArray<NSNumber *> *_Nullable) locations
+                        startPoint:(CGPoint) startPoint
+                          endPoint:(CGPoint) endPoint
+                              type:(ALGradientLayerType) type NS_SWIFT_UNAVAILABLE("仅OC可用");
 
 @end
-
-NS_ASSUME_NONNULL_END

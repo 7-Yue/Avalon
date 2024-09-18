@@ -13,7 +13,9 @@ let package = Package(
             name: "Avalon",
             targets: [
                 "AvalonExtensionOC",
-                "AvalonExtensionSwift"
+                "AvalonExtensionSwift",
+                "AvalonUIBoxOC",
+                "AvalonUIBoxSwift",
             ]),
     ],
     dependencies: [
@@ -24,11 +26,17 @@ let package = Package(
                 path: "Sources/Extension/OC"),
         .target(name: "AvalonExtensionSwift",
                 path: "Sources/Extension/Swift"),
+        .target(name: "AvalonUIBoxOC",
+                path: "Sources/UIBox/OC"),
+        .target(name: "AvalonUIBoxSwift",
+                path: "Sources/UIBox/Swift"),
         .testTarget(
             name: "AvalonTests",
             dependencies: [
                 "AvalonExtensionSwift",
                 "AvalonExtensionOC",
+                "AvalonUIBoxOC",
+                "AvalonUIBoxSwift",
             ]),
     ]
 )

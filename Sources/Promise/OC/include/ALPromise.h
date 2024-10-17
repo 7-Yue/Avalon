@@ -1,6 +1,9 @@
 #import <Foundation/Foundation.h>
-#import <AvalonFramework/ALPromiseDeclaration.h>
-//#import "ALPromiseDeclaration.h"
+#if __has_include(<AvalonFramework/ALPromiseDeclaration.h>)
+    #import <AvalonFramework/ALPromiseDeclaration.h>
+#else
+    #import "ALPromiseDeclaration.h"
+#endif
 
 NS_SWIFT_UNAVAILABLE("仅OC可用")
 @interface ALPromise : NSObject

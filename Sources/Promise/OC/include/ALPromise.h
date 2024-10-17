@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <AvalonFramework/ALPromiseDeclaration.h>
+//#import "ALPromiseDeclaration.h"
 
 NS_SWIFT_UNAVAILABLE("仅OC可用")
 @interface ALPromise : NSObject
@@ -18,7 +19,7 @@ NS_SWIFT_UNAVAILABLE("仅OC可用")
 
 @end
 
-NS_SWIFT_UNAVAILABLE("仅OC可用");
+NS_SWIFT_UNAVAILABLE("仅OC可用")
 @interface ALPromiseResult : NSObject
 
 @property (nonatomic, readonly, assign) BOOL havePromise;

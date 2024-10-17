@@ -3,6 +3,23 @@
   "type": "directory",
   "contents": [
 {
+      "name": "TestPromise",
+      "type": "directory",
+      "contents": [
+        {
+          "name": "TestPromiseOCVC.h",
+          "type": "file"
+        }
+,
+        {
+          "name": "TestPromiseOCVC.m",
+          "type": "file"
+        }
+
+      ]
+    }
+,
+{
       "name": "TestUILabel",
       "type": "directory",
       "contents": [

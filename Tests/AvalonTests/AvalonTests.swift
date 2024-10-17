@@ -3,6 +3,8 @@ import XCTest
 @testable import AvalonExtensionSwift
 @testable import AvalonUIBoxOC
 @testable import AvalonUIBoxSwift
+@testable import AvalonPromiseOC
+@testable import AvalonPromiseSwift
 
 final class AvalonTests: XCTestCase {
     func testExample() throws {
@@ -11,6 +13,7 @@ final class AvalonTests: XCTestCase {
         UIView().setAl_layoutCallback {
             
         }
+        
         // Defining Test Cases and Test Methods
         // https://developer.apple.com/documentation/xctest/defining_test_cases_and_test_methods
     }

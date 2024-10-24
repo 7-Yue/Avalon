@@ -83,15 +83,15 @@ static int ALPromiseCount = 0;
           enumerateObjectsUsingBlock:^(ALPromise *_Nonnull obj, NSUInteger idx,
                                        BOOL *_Nonnull stop) {
             switch (self.status) {
-            case ALPromiseStatusPending:
-                break;
-            case ALPromiseStatusRejected:
-            case ALPromiseStatusFulfilled: {
-                [obj.execute executeWithQueue:obj.queue
-                                    preResult:self.result
-                                      promise:obj];
-                break;
-            }
+                case ALPromiseStatusPending:
+                    break;
+                case ALPromiseStatusRejected:
+                case ALPromiseStatusFulfilled: {
+                    [obj.execute executeWithQueue:obj.queue
+                                        preResult:self.result
+                                          promise:obj];
+                    break;
+                }
             }
           }];
     });
@@ -99,13 +99,15 @@ static int ALPromiseCount = 0;
 
 - (void)_completeWithPromise:(ALPromise *)promise
                       result:(ALPromiseResult *_Nullable)result {
-    self.result = result;
-    if (self.result.haveError) {
-        self.status = ALPromiseStatusRejected;
-    } else {
-        self.status = ALPromiseStatusFulfilled;
-    }
-    [self _executePromiseList];
+    dispatch_async(self.queue, ^{
+        self.result = result;
+        if (self.result.haveError) {
+            self.status = ALPromiseStatusRejected;
+        } else {
+            self.status = ALPromiseStatusFulfilled;
+        }
+        [self _executePromiseList];
+    });
 }
 
 + (ALPromise *_Nonnull (^)(id _Nullable))resolve {

@@ -37,14 +37,11 @@
                                      BOOL *_Nonnull stop) {
           dispatch_group_enter(group);
           obj.then(^ALPromiseResult *_Nullable(id _Nullable data) {
-            dispatch_async(queue, ^{
               result[idx] = data ?: [NSNull null];
               dispatch_group_leave(group);
-            });
-            return nil;
+              return nil;
           });
           obj.detect(^(NSError *_Nullable error) {
-            dispatch_async(queue, ^{
               if (!flag) {
                   /*
                    这里注意循环引用，数组引用了promiseList，promiseList里promise持有了封装的block，
@@ -55,12 +52,10 @@
                   flag = YES;
               }
               dispatch_group_leave(group);
-            });
           });
         }];
 
     dispatch_group_notify(group, dispatch_get_global_queue(0, 0), ^{
-      dispatch_async(queue, ^{
         if (flag) {
             return;
         }
@@ -72,7 +67,6 @@
         }];
         [promise _completeWithPromise:promise
                                result:ALPromiseResult.fillData(values)];
-      });
     });
 }
 
@@ -106,22 +100,17 @@
                                      BOOL *_Nonnull stop) {
           dispatch_group_enter(group);
           obj.then(^ALPromiseResult *_Nullable(id _Nullable data) {
-            dispatch_async(queue, ^{
               result[idx] = data ?: [NSNull null];
               dispatch_group_leave(group);
-            });
             return nil;
           });
           obj.detect(^(NSError *_Nullable error) {
-            dispatch_async(queue, ^{
               result[idx] = error ?: [NSNull null];
               dispatch_group_leave(group);
-            });
           });
         }];
 
     dispatch_group_notify(group, dispatch_get_global_queue(0, 0), ^{
-      dispatch_async(queue, ^{
         NSMutableArray *values = [NSMutableArray array];
         [result enumerateObjectsUsingBlock:^(id obj,
                                              NSUInteger idx,
@@ -130,7 +119,6 @@
         }];
         [promise _completeWithPromise:promise
                                result:ALPromiseResult.fillData(values)];
-      });
     });
 }
 
@@ -159,7 +147,6 @@
                                      BOOL *_Nonnull stop) {
           dispatch_group_enter(group);
           obj.then(^ALPromiseResult *_Nullable(id _Nullable data) {
-            dispatch_async(queue, ^{
               if (!flag) {
                   // 这里注意循环引用，同理
                   ALPromiseResult *res = ALPromiseResult.fillData(data ?: [NSNull null]);
@@ -168,18 +155,14 @@
                   flag = YES;
               }
               dispatch_group_leave(group);
-            });
-            return nil;
+              return nil;
           });
           obj.detect(^(NSError *_Nullable error) {
-              dispatch_async(queue, ^{
-                  dispatch_group_leave(group);
-              });
+              dispatch_group_leave(group);
           });
         }];
 
     dispatch_group_notify(group, dispatch_get_global_queue(0, 0), ^{
-      dispatch_async(queue, ^{
         if (flag) {
             return;
         }
@@ -188,7 +171,6 @@
                                      userInfo:nil];
         [promise _completeWithPromise:promise
                                result:ALPromiseResult.fillError(e)];
-      });
     });
 }
 
@@ -218,43 +200,37 @@
                                                    BOOL *_Nonnull stop) {
           dispatch_group_enter(group);
           obj.then(^ALPromiseResult *_Nullable(id _Nullable data) {
-              dispatch_async(queue, ^{
-                  if (!flag) {
-                      // 这里注意循环引用，同理
-                      ALPromiseResult *res = ALPromiseResult.fillData(data ?: [NSNull null]);
-                      [weakPromise _completeWithPromise:weakPromise
-                                                 result:res];
-                      flag = YES;
-                  }
-                  dispatch_group_leave(group);
-              });
+              if (!flag) {
+                  // 这里注意循环引用，同理
+                  ALPromiseResult *res = ALPromiseResult.fillData(data ?: [NSNull null]);
+                  [weakPromise _completeWithPromise:weakPromise
+                                             result:res];
+                  flag = YES;
+              }
+              dispatch_group_leave(group);
               return nil;
           });
           obj.detect(^(NSError *_Nullable error) {
-              dispatch_async(queue, ^{
-                  if (!flag) {
-                      // 这里注意循环引用，同理
-                      ALPromiseResult *res = ALPromiseResult.fillError(error);
-                      [weakPromise _completeWithPromise:weakPromise
-                                                 result:res];
-                      flag = YES;
-                  }
-                  dispatch_group_leave(group);
-              });
+              if (!flag) {
+                  // 这里注意循环引用，同理
+                  ALPromiseResult *res = ALPromiseResult.fillError(error);
+                  [weakPromise _completeWithPromise:weakPromise
+                                             result:res];
+                  flag = YES;
+              }
+              dispatch_group_leave(group);
           });
         }];
 
     dispatch_group_notify(group, dispatch_get_global_queue(0, 0), ^{
-        dispatch_async(queue, ^{
-            if (flag) {
-                return;
-            }
-            //  这里只是为了让gcd来管理promise的声明周期
+        if (flag) {
+            return;
+        }
+        //  这里只是为了让gcd来管理promise的声明周期
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused"
-            promise;
+        promise;
 #pragma clang diagnostic pop
-        });
     });
 }
 @end
@@ -276,7 +252,6 @@
                  promise:(ALPromise *_Nullable)promise {
     __block BOOL flag = NO;
     ALPromiseCallback callback = ^(ALPromiseResult *res) {
-      dispatch_async(queue, ^{
         if (flag) {
             return;
         }
@@ -285,25 +260,20 @@
             [promise _completeWithPromise:promise result:res];
         } else if (res.havePromise) {
             res.promise.then(^ALPromiseResult *_Nullable(id _Nullable data) {
-              dispatch_async(queue, ^{
-                  ALPromiseResult *res = ALPromiseResult.fillData(data);
-                  [promise _completeWithPromise:promise
+                ALPromiseResult *res = ALPromiseResult.fillData(data);
+                [promise _completeWithPromise:promise
                                          result:res];
-              });
-              return nil;
+                return nil;
             });
 
             res.promise.detect(^(NSError *_Nullable error) {
-              dispatch_async(queue, ^{
-                  ALPromiseResult *res = ALPromiseResult.fillError(error);
-                  [promise _completeWithPromise:promise
+                ALPromiseResult *res = ALPromiseResult.fillError(error);
+                [promise _completeWithPromise:promise
                                          result:res];
-              });
             });
         } else {
             NSAssert(NO, @"异常结果");
         }
-      });
     };
     self.block(callback);
 }
@@ -335,18 +305,14 @@
     } else if (preResult.havePromise) {
         preResult.promise
             .then(^ALPromiseResult *_Nullable(id _Nullable data) {
-              dispatch_async(queue, ^{
                 [promise _completeWithPromise:promise
                                        result:weakSelf.block(data)];
-              });
-              return nil;
+                return nil;
             })
             .detect(^(NSError *_Nullable error) {
-              dispatch_async(queue, ^{
-                  ALPromiseResult *res = ALPromiseResult.fillError(error);
-                  [promise _completeWithPromise:promise
+                ALPromiseResult *res = ALPromiseResult.fillError(error);
+                [promise _completeWithPromise:promise
                                          result:res];
-              });
             });
     } else {
         NSAssert(NO, @"异常结果");

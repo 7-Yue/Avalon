@@ -18,8 +18,8 @@
     //    [self demo4];
     //    [self demo5];
     //    [self demo6];
-    //    [self demo7];
-    [self demo8];
+    [self demo7];
+//    [self demo8];
 }
 
 - (void)demo1 {

@@ -18,6 +18,8 @@ let package = Package(
                 "AvalonUIBoxSwift",
                 "AvalonPromiseOC",
                 "AvalonPromiseSwift",
+                "AvalonListKitOC",
+                "AvalonListKitSwift",
             ]),
     ],
     dependencies: [
@@ -39,6 +41,11 @@ let package = Package(
                 publicHeadersPath: "include"),
         .target(name: "AvalonPromiseSwift",
                 path: "Sources/Promise/Swift"),
+        .target(name: "AvalonListKitOC",
+                path: "Sources/ListKit/OC",
+                publicHeadersPath: "include"),
+        .target(name: "AvalonListKitSwift",
+                path: "Sources/ListKit/Swift"),
         .testTarget(
             name: "AvalonTests",
             dependencies: [
@@ -48,6 +55,8 @@ let package = Package(
                 "AvalonUIBoxSwift",
                 "AvalonPromiseOC",
                 "AvalonPromiseSwift",
+                "AvalonListKitOC",
+                "AvalonListKitSwift",
             ]),
     ]
 )

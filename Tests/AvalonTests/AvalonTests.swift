@@ -5,6 +5,8 @@ import XCTest
 @testable import AvalonUIBoxSwift
 @testable import AvalonPromiseOC
 @testable import AvalonPromiseSwift
+@testable import AvalonListKitOC
+@testable import AvalonListKitSwift
 
 final class AvalonTests: XCTestCase {
     func testExample() throws {

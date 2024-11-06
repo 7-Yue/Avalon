@@ -8,6 +8,10 @@ FOUNDATION_EXPORT const unsigned char AvalonFrameworkVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <AvalonFramework/PublicHeader.h>
 
+
+#import <AvalonFramework/ALTableListProtocol.h>
+#import <AvalonFramework/ALTableListView.h>
+
 #import <AvalonFramework/ALPromise.h>
 #import <AvalonFramework/ALPromiseDeclaration.h>
 

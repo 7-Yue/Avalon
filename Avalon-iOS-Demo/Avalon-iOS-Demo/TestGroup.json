@@ -20,6 +20,23 @@
     }
 ,
 {
+      "name": "TestTableList",
+      "type": "directory",
+      "contents": [
+        {
+          "name": "TestTableListOCVC.h",
+          "type": "file"
+        }
+,
+        {
+          "name": "TestTableListOCVC.m",
+          "type": "file"
+        }
+
+      ]
+    }
+,
+{
       "name": "TestUILabel",
       "type": "directory",
       "contents": [

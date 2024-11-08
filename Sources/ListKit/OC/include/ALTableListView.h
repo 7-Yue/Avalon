@@ -9,10 +9,6 @@ NS_SWIFT_UNAVAILABLE("仅OC可用")
 @interface ALTableListView : UIView
 @property(nonatomic, strong, readonly, nonnull) __kindof UITableView *tableView;
 @property(nonatomic, strong, readonly, nullable) id<ALTableListDataProtocol> data;
-@end
-
-NS_SWIFT_UNAVAILABLE("仅OC可用")
-@interface ALTableListView (Action)
 
 /// 初始化
 /// - Parameters:
@@ -29,5 +25,6 @@ NS_SWIFT_UNAVAILABLE("仅OC可用")
 - (void)bindWithData:(id <ALTableListDataProtocol> _Nullable) data;
 
 @end
+
 
 

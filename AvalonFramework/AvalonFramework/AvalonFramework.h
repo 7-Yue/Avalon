@@ -11,6 +11,8 @@ FOUNDATION_EXPORT const unsigned char AvalonFrameworkVersionString[];
 
 #import <AvalonFramework/ALTableListProtocol.h>
 #import <AvalonFramework/ALTableListView.h>
+#import <AvalonFramework/ALCollectionListProtocol.h>
+#import <AvalonFramework/ALCollectionListView.h>
 
 #import <AvalonFramework/ALPromise.h>
 #import <AvalonFramework/ALPromiseDeclaration.h>

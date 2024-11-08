@@ -3,6 +3,33 @@
   "type": "directory",
   "contents": [
 {
+      "name": "TestListView",
+      "type": "directory",
+      "contents": [
+        {
+          "name": "TestCollectionListOCVC.h",
+          "type": "file"
+        }
+,
+        {
+          "name": "TestCollectionListOCVC.m",
+          "type": "file"
+        }
+,
+        {
+          "name": "TestTableListOCVC.h",
+          "type": "file"
+        }
+,
+        {
+          "name": "TestTableListOCVC.m",
+          "type": "file"
+        }
+
+      ]
+    }
+,
+{
       "name": "TestPromise",
       "type": "directory",
       "contents": [
@@ -13,23 +40,6 @@
 ,
         {
           "name": "TestPromiseOCVC.m",
-          "type": "file"
-        }
-
-      ]
-    }
-,
-{
-      "name": "TestTableList",
-      "type": "directory",
-      "contents": [
-        {
-          "name": "TestTableListOCVC.h",
-          "type": "file"
-        }
-,
-        {
-          "name": "TestTableListOCVC.m",
           "type": "file"
         }
 

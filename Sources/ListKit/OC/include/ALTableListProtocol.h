@@ -28,12 +28,12 @@ NS_SWIFT_UNAVAILABLE("仅OC可用")
 
 @required
     @property(nonatomic, copy, readonly, nullable) NSArray<id <ALTableListDataRowsProtocol>> *rows;
-    @property(nonatomic, assign, readonly) double headerHeight;
-    @property(nonatomic, assign, readonly) double footerHeight;
 
 @optional
     @property(nonatomic, strong, readonly, nullable) Class<ALTableListHeaderProtocol> relatedHeader;
     @property(nonatomic, strong, readonly, nullable) Class<ALTableListFooterProtocol> relatedFooter;
+    @property(nonatomic, assign, readonly) double headerHeight;
+    @property(nonatomic, assign, readonly) double footerHeight;
 
 @end
 

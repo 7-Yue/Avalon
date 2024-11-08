@@ -78,9 +78,9 @@
 @property(nonatomic, strong, readwrite, nonnull) ALTableListViewProxy *proxy;
 @property(nonatomic, strong, readwrite, nullable) id<ALTableListDataProtocol> data;
 @property(nonatomic, strong, readwrite, nonnull) __kindof UITableView *tableView;
-@property(nonatomic, assign, readwrite) UITableViewStyle style;
 @property(nonatomic, strong, readwrite, nonnull) NSMutableArray *registerCellList;
-@property(nonatomic, strong, readwrite, nonnull) NSMutableArray *registerHeaderFooterViewList;
+@property(nonatomic, strong, readwrite, nonnull) NSMutableArray *registerHeaderViewList;
+@property(nonatomic, strong, readwrite, nonnull) NSMutableArray *registerFooterViewList;
 @end
 
 @implementation ALTableListView
@@ -181,7 +181,7 @@
                                        reason:@"必须遵循ALTableListHeaderProtocol协议"
                                      userInfo:nil];
     }
-    if (![self.registerHeaderFooterViewList containsObject:relatedHeader]) {
+    if (![self.registerHeaderViewList containsObject:relatedHeader]) {
         [tableView registerClass:relatedHeader forHeaderFooterViewReuseIdentifier:NSStringFromClass(relatedHeader)];
     }
     UITableViewHeaderFooterView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(relatedHeader)];
@@ -211,7 +211,7 @@
                                        reason:@"必须遵循ALTableListFooterProtocol协议"
                                      userInfo:nil];
     }
-    if (![self.registerHeaderFooterViewList containsObject:relatedFooter]) {
+    if (![self.registerFooterViewList containsObject:relatedFooter]) {
         [tableView registerClass:relatedFooter forHeaderFooterViewReuseIdentifier:NSStringFromClass(relatedFooter)];
     }
     UITableViewHeaderFooterView *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(relatedFooter)];
@@ -272,19 +272,19 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     id<ALTableListDataSectionProtocol> sectionData = self.data.sections[section];
-    if (sectionData.headerHeight == 0) {
-        return CGFLOAT_MIN;
+    if([sectionData respondsToSelector:@selector(headerHeight)]) {
+        return sectionData.headerHeight == 0 ? CGFLOAT_MIN : sectionData.headerHeight;
     } else {
-        return sectionData.headerHeight;
+        return CGFLOAT_MIN;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     id<ALTableListDataSectionProtocol> sectionData = self.data.sections[section];
-    if (sectionData.footerHeight == 0) {
-        return CGFLOAT_MIN;
+    if([sectionData respondsToSelector:@selector(footerHeight)]) {
+        return sectionData.footerHeight == 0 ? CGFLOAT_MIN : sectionData.footerHeight;
     } else {
-        return sectionData.footerHeight;
+        return CGFLOAT_MIN;
     }
 }
 
@@ -297,11 +297,18 @@
     return _registerCellList;
 }
 
-- (NSMutableArray *)registerHeaderFooterViewList {
-    if(!_registerHeaderFooterViewList) {
-        _registerHeaderFooterViewList = [NSMutableArray array];
+- (NSMutableArray *)registerHeaderViewList {
+    if(!_registerHeaderViewList) {
+        _registerHeaderViewList = [NSMutableArray array];
     }
-    return _registerHeaderFooterViewList;
+    return _registerHeaderViewList;
+}
+
+- (NSMutableArray *)registerFooterViewList {
+    if(!_registerFooterViewList) {
+        _registerFooterViewList = [NSMutableArray array];
+    }
+    return _registerFooterViewList;
 }
 
 @end

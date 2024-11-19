@@ -21,3 +21,4 @@ FOUNDATION_EXPORT const unsigned char AvalonFrameworkVersionString[];
 
 #import <AvalonFramework/UIView+Extension.h>
 #import <AvalonFramework/NSObject+Extension.h>
+#import <AvalonFramework/UIDevice+Extension.h>

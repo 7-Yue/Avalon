@@ -9,8 +9,8 @@ typedef NS_ENUM(NSInteger, ALAssociationPolicy) {
     ALAssociationPolicy_RetainNonantomic    = 6
 } NS_SWIFT_UNAVAILABLE("仅OC可用");
 
-
-/// 方法交换【❗目前测试下来，在swift里无法对oc的子类进行swift里创造的函数进行方法交换，只能在oc侧实现】
+// ???: ❗目前测试下来，在swift里无法对oc的子类进行swift里创造的函数进行方法交换，只能在oc侧实现
+/// 方法交换
 /// - Parameters:
 ///   - cls: 交换类
 ///   - originalSelector: 原始方法

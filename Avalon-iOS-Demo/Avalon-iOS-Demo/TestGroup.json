@@ -47,6 +47,23 @@
     }
 ,
 {
+      "name": "TestUIDevice",
+      "type": "directory",
+      "contents": [
+        {
+          "name": "TestUIDeviceOCVC.h",
+          "type": "file"
+        }
+,
+        {
+          "name": "TestUIDeviceOCVC.m",
+          "type": "file"
+        }
+
+      ]
+    }
+,
+{
       "name": "TestUILabel",
       "type": "directory",
       "contents": [

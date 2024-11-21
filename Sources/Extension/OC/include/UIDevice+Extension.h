@@ -12,7 +12,7 @@
 /// 设备当前安全距离值，横竖屏有影响
 + (UIEdgeInsets)al_safeAreaEdgeInsets;
 
-// ???: ❗目前iphone有两种【44，32很少见了】
+// ???: ❗目前iphone有两种【44、32，而32很少见】
 /// 系统常规导航栏高度 44
 + (double)al_systemNavbarHeight NS_SWIFT_UNAVAILABLE("仅OC可用");
 
@@ -35,6 +35,18 @@
 
 /// 设备当前网络类型
 + (NSString * _Nonnull)al_networkType NS_SWIFT_UNAVAILABLE("仅OC可用");
+
+/// 设备电池电量
++ (double)al_batteryLevel NS_SWIFT_UNAVAILABLE("仅OC可用");
+
+/// 操作系统版本
++ (NSString * _Nonnull)al_sysVer NS_SWIFT_UNAVAILABLE("仅OC可用");
+
+// ???: ❗计算IP的逻辑并不完全稳定
+/// 设备IP地址
++ (NSString * _Nonnull)al_ipv4 NS_SWIFT_UNAVAILABLE("仅OC可用");
++ (NSString * _Nonnull)al_ipv6 NS_SWIFT_UNAVAILABLE("仅OC可用");
++ (NSDictionary <NSString *, NSString *> * _Nonnull)al_ipList NS_SWIFT_UNAVAILABLE("仅OC可用");
 
 @end
 

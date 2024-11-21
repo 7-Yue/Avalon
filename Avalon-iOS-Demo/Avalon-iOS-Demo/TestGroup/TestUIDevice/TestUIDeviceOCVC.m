@@ -29,6 +29,14 @@
     NSLog(@"设备类型名:%@", [UIDevice al_deviceSysTypeName]);
     NSLog(@"设备产品名:%@", [UIDevice al_deviceProductName]);
     NSLog(@"设备网络:%@", [UIDevice al_networkType]);
+    NSLog(@"设备电池:%lf", [UIDevice al_batteryLevel]);
+    NSLog(@"设备IPv4:%@", [UIDevice al_ipv4]);
+    NSLog(@"设备IPv6:%@", [UIDevice al_ipv6]);
+    NSLog(@"设备IP表:");
+    [[UIDevice al_ipList] enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
+        NSLog(@"\t \"%@\" = \"%@\"", key, obj);
+    }];
+    NSLog(@"设备系统:%@", [UIDevice al_sysVer]);
 }
 
 @end

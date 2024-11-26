@@ -10,7 +10,7 @@
 + (double)al_statusBarHeight NS_SWIFT_UNAVAILABLE("仅OC可用");
 
 /// 设备当前安全距离值，横竖屏有影响
-+ (UIEdgeInsets)al_safeAreaEdgeInsets;
++ (UIEdgeInsets)al_safeAreaEdgeInsets NS_SWIFT_UNAVAILABLE("仅OC可用");
 
 // ???: ❗目前iphone有两种【44、32，而32很少见】
 /// 系统常规导航栏高度 44

@@ -30,6 +30,23 @@
     }
 ,
 {
+      "name": "TestNSTimer",
+      "type": "directory",
+      "contents": [
+        {
+          "name": "TestNSTimerOCVC.h",
+          "type": "file"
+        }
+,
+        {
+          "name": "TestNSTimerOCVC.m",
+          "type": "file"
+        }
+
+      ]
+    }
+,
+{
       "name": "TestPromise",
       "type": "directory",
       "contents": [
@@ -40,6 +57,23 @@
 ,
         {
           "name": "TestPromiseOCVC.m",
+          "type": "file"
+        }
+
+      ]
+    }
+,
+{
+      "name": "TestTemp",
+      "type": "directory",
+      "contents": [
+        {
+          "name": "TestTempOCVC.h",
+          "type": "file"
+        }
+,
+        {
+          "name": "TestTempOCVC.m",
           "type": "file"
         }
 

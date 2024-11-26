@@ -34,6 +34,8 @@
 		0AB6AE192CDB3EB500345028 /* TestTableListOCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6AE182CDB3EB500345028 /* TestTableListOCVC.m */; };
 		0AB6AE392CDCB17700345028 /* TestCollectionListOCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6AE382CDCB17700345028 /* TestCollectionListOCVC.m */; };
 		0AB6AE952CEB3E2500345028 /* TestUIDeviceOCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6AE942CEB3E2500345028 /* TestUIDeviceOCVC.m */; };
+		0AB6AEAD2CF0608600345028 /* TestTempOCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6AEAC2CF0608600345028 /* TestTempOCVC.m */; };
+		0AB6AEB82CF5EF3100345028 /* TestNSTimerOCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6AEB72CF5EF3100345028 /* TestNSTimerOCVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -99,6 +101,10 @@
 		0AB6AE382CDCB17700345028 /* TestCollectionListOCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCollectionListOCVC.m; sourceTree = "<group>"; };
 		0AB6AE932CEB3E2500345028 /* TestUIDeviceOCVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestUIDeviceOCVC.h; sourceTree = "<group>"; };
 		0AB6AE942CEB3E2500345028 /* TestUIDeviceOCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestUIDeviceOCVC.m; sourceTree = "<group>"; };
+		0AB6AEAB2CF0608600345028 /* TestTempOCVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTempOCVC.h; sourceTree = "<group>"; };
+		0AB6AEAC2CF0608600345028 /* TestTempOCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTempOCVC.m; sourceTree = "<group>"; };
+		0AB6AEB62CF5EF3100345028 /* TestNSTimerOCVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestNSTimerOCVC.h; sourceTree = "<group>"; };
+		0AB6AEB72CF5EF3100345028 /* TestNSTimerOCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestNSTimerOCVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,8 @@
 		0A713D812C92D28C00FABA2D /* TestGroup */ = {
 			isa = PBXGroup;
 			children = (
+				0AB6AEAA2CF0607000345028 /* TestTemp */,
+				0AB6AEB52CF5EF0E00345028 /* TestNSTimer */,
 				0AB6AE162CDB3E7F00345028 /* TestListView */,
 				0A02AC832CA1665A00EF61D2 /* TestPromise */,
 				0A713D842C92E04600FABA2D /* TestUILabel */,
@@ -247,6 +255,24 @@
 			path = TestUIDevice;
 			sourceTree = "<group>";
 		};
+		0AB6AEAA2CF0607000345028 /* TestTemp */ = {
+			isa = PBXGroup;
+			children = (
+				0AB6AEAB2CF0608600345028 /* TestTempOCVC.h */,
+				0AB6AEAC2CF0608600345028 /* TestTempOCVC.m */,
+			);
+			path = TestTemp;
+			sourceTree = "<group>";
+		};
+		0AB6AEB52CF5EF0E00345028 /* TestNSTimer */ = {
+			isa = PBXGroup;
+			children = (
+				0AB6AEB62CF5EF3100345028 /* TestNSTimerOCVC.h */,
+				0AB6AEB72CF5EF3100345028 /* TestNSTimerOCVC.m */,
+			);
+			path = TestNSTimer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -350,12 +376,14 @@
 			files = (
 				0AB6AE392CDCB17700345028 /* TestCollectionListOCVC.m in Sources */,
 				0A02AC862CA1669200EF61D2 /* TestPromiseOCVC.m in Sources */,
+				0AB6AEAD2CF0608600345028 /* TestTempOCVC.m in Sources */,
 				0A713DB02C94151100FABA2D /* MASConstraint.m in Sources */,
 				0A713DB32C94151100FABA2D /* MASViewAttribute.m in Sources */,
 				0AB6AE192CDB3EB500345028 /* TestTableListOCVC.m in Sources */,
 				0A713DB82C94151100FABA2D /* ViewController+MASAdditions.m in Sources */,
 				0A713DB52C94151100FABA2D /* NSArray+MASAdditions.m in Sources */,
 				0A713D8E2C92F73F00FABA2D /* TestUIViewSwiftVC.swift in Sources */,
+				0AB6AEB82CF5EF3100345028 /* TestNSTimerOCVC.m in Sources */,
 				0A713DB42C94151100FABA2D /* MASViewConstraint.m in Sources */,
 				0A713DB22C94151100FABA2D /* MASLayoutConstraint.m in Sources */,
 				0A713D922C9411B700FABA2D /* TestUIViewOCVC.m in Sources */,

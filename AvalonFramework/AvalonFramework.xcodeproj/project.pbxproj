@@ -28,6 +28,10 @@
 		0AB6AE912CEB37E900345028 /* UIDevice+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AB6AE902CEB37E900345028 /* UIDevice+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AB6AEB32CF5EBE200345028 /* NSTimer+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6AEB22CF5EBE200345028 /* NSTimer+Extension.m */; };
 		0AB6AEB42CF5EBE200345028 /* NSTimer+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AB6AEB12CF5EBE200345028 /* NSTimer+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0AB6AEBB2CF6B99900345028 /* NSArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6AEBA2CF6B99900345028 /* NSArray+Extension.m */; };
+		0AB6AEBC2CF6B99900345028 /* NSArray+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AB6AEB92CF6B99900345028 /* NSArray+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0AB6AEBF2CF6C35B00345028 /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6AEBE2CF6C35B00345028 /* NSDictionary+Extension.m */; };
+		0AB6AEC02CF6C35B00345028 /* NSDictionary+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AB6AEBD2CF6C35B00345028 /* NSDictionary+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AD0D1F12CD8EBF7000692B8 /* File3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD0D1EE2CD8EBF7000692B8 /* File3.swift */; };
 		0AD0D1F42CD8EC32000692B8 /* ALTableListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AD0D1F22CD8EC32000692B8 /* ALTableListView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AD0D1F72CD8EC4C000692B8 /* ALTableListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD0D1F62CD8EC4C000692B8 /* ALTableListView.m */; };
@@ -57,6 +61,10 @@
 		0AB6AE902CEB37E900345028 /* UIDevice+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Extension.h"; sourceTree = "<group>"; };
 		0AB6AEB12CF5EBE200345028 /* NSTimer+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Extension.h"; sourceTree = "<group>"; };
 		0AB6AEB22CF5EBE200345028 /* NSTimer+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Extension.m"; sourceTree = "<group>"; };
+		0AB6AEB92CF6B99900345028 /* NSArray+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Extension.h"; sourceTree = "<group>"; };
+		0AB6AEBA2CF6B99900345028 /* NSArray+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Extension.m"; sourceTree = "<group>"; };
+		0AB6AEBD2CF6C35B00345028 /* NSDictionary+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extension.h"; sourceTree = "<group>"; };
+		0AB6AEBE2CF6C35B00345028 /* NSDictionary+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extension.m"; sourceTree = "<group>"; };
 		0AD0D1EE2CD8EBF7000692B8 /* File3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File3.swift; sourceTree = "<group>"; };
 		0AD0D1F22CD8EC32000692B8 /* ALTableListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALTableListView.h; sourceTree = "<group>"; };
 		0AD0D1F62CD8EC4C000692B8 /* ALTableListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALTableListView.m; sourceTree = "<group>"; };
@@ -151,6 +159,8 @@
 				0AB6AE902CEB37E900345028 /* UIDevice+Extension.h */,
 				0A713D772C919C7500FABA2D /* NSObject+Extension.h */,
 				0AB6AEB12CF5EBE200345028 /* NSTimer+Extension.h */,
+				0AB6AEB92CF6B99900345028 /* NSArray+Extension.h */,
+				0AB6AEBD2CF6C35B00345028 /* NSDictionary+Extension.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -160,6 +170,8 @@
 			children = (
 				0A713D692C91876500FABA2D /* include */,
 				0A713D742C9193A700FABA2D /* UIView+Extension.m */,
+				0AB6AEBE2CF6C35B00345028 /* NSDictionary+Extension.m */,
+				0AB6AEBA2CF6B99900345028 /* NSArray+Extension.m */,
 				0AB6AEB22CF5EBE200345028 /* NSTimer+Extension.m */,
 				0A713D782C919C7500FABA2D /* NSObject+Extension.m */,
 				0AB6AE8D2CEB37D300345028 /* UIDevice+Extension.m */,
@@ -271,10 +283,12 @@
 				0A713D752C9193A700FABA2D /* UIView+Extension.h in Headers */,
 				0A5A79C92CBE6D19002FB980 /* ALPromiseDeclaration.h in Headers */,
 				0A02AC812CA162E400EF61D2 /* ALPromise.h in Headers */,
+				0AB6AEBC2CF6B99900345028 /* NSArray+Extension.h in Headers */,
 				0AD0D1F92CDA39AB000692B8 /* ALTableListProtocol.h in Headers */,
 				0AD0D1F42CD8EC32000692B8 /* ALTableListView.h in Headers */,
 				0AB6AEB42CF5EBE200345028 /* NSTimer+Extension.h in Headers */,
 				0A02AC772C97247800EF61D2 /* ALShowView.h in Headers */,
+				0AB6AEC02CF6C35B00345028 /* NSDictionary+Extension.h in Headers */,
 				0AB6AE212CDB76B000345028 /* ALCollectionListProtocol.h in Headers */,
 				0AB6AE912CEB37E900345028 /* UIDevice+Extension.h in Headers */,
 				0AB6AE1C2CDB768300345028 /* ALCollectionListView.h in Headers */,
@@ -354,7 +368,9 @@
 				0A02AC7A2C9D4A3500EF61D2 /* File2.swift in Sources */,
 				0AD0D1F12CD8EBF7000692B8 /* File3.swift in Sources */,
 				0AB6AE1F2CDB769700345028 /* ALCollectionListView.m in Sources */,
+				0AB6AEBF2CF6C35B00345028 /* NSDictionary+Extension.m in Sources */,
 				0AB6AEB32CF5EBE200345028 /* NSTimer+Extension.m in Sources */,
+				0AB6AEBB2CF6B99900345028 /* NSArray+Extension.m in Sources */,
 				0A02AC762C97247800EF61D2 /* ALShowView.m in Sources */,
 				0A02AC802CA162E400EF61D2 /* ALPromise.m in Sources */,
 				0A5A79D42CBF62CD002FB980 /* ALPromiseExecute.m in Sources */,

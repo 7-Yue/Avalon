@@ -130,6 +130,28 @@
 
       ]
     }
+,
+{
+      "name": "TestWKWebView",
+      "type": "directory",
+      "contents": [
+        {
+          "name": "TestWKWebViewOCVC.h",
+          "type": "file"
+        }
+,
+        {
+          "name": "TestWKWebViewOCVC.m",
+          "type": "file"
+        }
+,
+        {
+          "name": "TestWKWebViewSwiftVC.swift",
+          "type": "file"
+        }
+
+      ]
+    }
 
   ]
 }

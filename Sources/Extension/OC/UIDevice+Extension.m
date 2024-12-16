@@ -139,9 +139,9 @@
 + (NSString *)al_deviceProductName {
     NSString *identifier = [UIDevice al_deviceSysTypeName];
     NSDictionary *deviceMap = @{
-        @"i386"      : @"iPhone Simulator",
-        @"x86_64"    : @"iPhone Simulator",
-        @"arm64"     : @"iPhone Simulator",
+        @"i386"      : @"iPhone Simulator (i386)",
+        @"x86_64"    : @"iPhone Simulator (x86_64)",
+        @"arm64"     : @"iPhone Simulator (arm64)",
         @"iPhone1,1" : @"iPhone",
         @"iPhone1,2" : @"iPhone 3G",
         @"iPhone2,1" : @"iPhone 3GS",

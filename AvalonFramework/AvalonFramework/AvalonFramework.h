@@ -33,3 +33,4 @@ FOUNDATION_EXPORT const unsigned char AvalonFrameworkVersionString[];
 #import <AvalonFramework/NSTimer+Extension.h>
 #import <AvalonFramework/NSArray+Extension.h>
 #import <AvalonFramework/NSDictionary+Extension.h>
+#import <AvalonFramework/WKWebView+Extension.h>

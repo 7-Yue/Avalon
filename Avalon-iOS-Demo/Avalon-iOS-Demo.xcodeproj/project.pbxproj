@@ -36,6 +36,8 @@
 		0AB6AE952CEB3E2500345028 /* TestUIDeviceOCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6AE942CEB3E2500345028 /* TestUIDeviceOCVC.m */; };
 		0AB6AEAD2CF0608600345028 /* TestTempOCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6AEAC2CF0608600345028 /* TestTempOCVC.m */; };
 		0AB6AEB82CF5EF3100345028 /* TestNSTimerOCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6AEB72CF5EF3100345028 /* TestNSTimerOCVC.m */; };
+		0AB6B0402D02B9E500345028 /* TestWKWebViewOCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6B03F2D02B9E500345028 /* TestWKWebViewOCVC.m */; };
+		0AB6B0822D0A884100345028 /* TestWKWebViewSwiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6B0812D0A884100345028 /* TestWKWebViewSwiftVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -105,6 +107,9 @@
 		0AB6AEAC2CF0608600345028 /* TestTempOCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTempOCVC.m; sourceTree = "<group>"; };
 		0AB6AEB62CF5EF3100345028 /* TestNSTimerOCVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestNSTimerOCVC.h; sourceTree = "<group>"; };
 		0AB6AEB72CF5EF3100345028 /* TestNSTimerOCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestNSTimerOCVC.m; sourceTree = "<group>"; };
+		0AB6B03E2D02B9E500345028 /* TestWKWebViewOCVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestWKWebViewOCVC.h; sourceTree = "<group>"; };
+		0AB6B03F2D02B9E500345028 /* TestWKWebViewOCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestWKWebViewOCVC.m; sourceTree = "<group>"; };
+		0AB6B0812D0A884100345028 /* TestWKWebViewSwiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestWKWebViewSwiftVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +137,7 @@
 		0A713D812C92D28C00FABA2D /* TestGroup */ = {
 			isa = PBXGroup;
 			children = (
+				0AB6B03D2D02B9CC00345028 /* TestWKWebView */,
 				0AB6AEAA2CF0607000345028 /* TestTemp */,
 				0AB6AEB52CF5EF0E00345028 /* TestNSTimer */,
 				0AB6AE162CDB3E7F00345028 /* TestListView */,
@@ -273,6 +279,16 @@
 			path = TestNSTimer;
 			sourceTree = "<group>";
 		};
+		0AB6B03D2D02B9CC00345028 /* TestWKWebView */ = {
+			isa = PBXGroup;
+			children = (
+				0AB6B03E2D02B9E500345028 /* TestWKWebViewOCVC.h */,
+				0AB6B03F2D02B9E500345028 /* TestWKWebViewOCVC.m */,
+				0AB6B0812D0A884100345028 /* TestWKWebViewSwiftVC.swift */,
+			);
+			path = TestWKWebView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -395,6 +411,8 @@
 				0A713DB12C94151100FABA2D /* MASConstraintMaker.m in Sources */,
 				0A88E1902C906B5B000E1B7B /* AppDelegate.swift in Sources */,
 				0A713D882C92F1B000FABA2D /* ListViewController.swift in Sources */,
+				0AB6B0402D02B9E500345028 /* TestWKWebViewOCVC.m in Sources */,
+				0AB6B0822D0A884100345028 /* TestWKWebViewSwiftVC.swift in Sources */,
 				0A713D8C2C92F71300FABA2D /* TestUILabel1VC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

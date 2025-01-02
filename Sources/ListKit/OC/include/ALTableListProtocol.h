@@ -11,14 +11,9 @@ NS_SWIFT_UNAVAILABLE("仅OC可用")
 @protocol ALTableListDataProtocol <NSObject>
 
 @required
-    @property(nonatomic, weak, readwrite, nullable) UITableView *tablewView;
     @property(nonatomic, copy, readonly, nullable) NSArray<id <ALTableListDataSectionProtocol>> *sections;
 
 @optional
-//  TODO:   如果需要通过更新数据源，从而达到直接更新UI的效果，需要一个在此扩展协议，并且实现内部使用tablewView完成UI更新
-//    - (void)reloadTablewView;
-//    - (void)addToLastSectionWithRows:(NSArray<id <ALTableListDataRowsProtocol>> *_Nullable) rows;
-//    - (void)removeFromLastSectionWithRowsRange:(NSRange) range;
 
 @end
 

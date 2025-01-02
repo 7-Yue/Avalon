@@ -15,7 +15,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.label = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.label.textColor = UIColor.blackColor;
+        self.label.textColor = [UIColor.blackColor colorWithAlphaComponent:0.3];
+        self.label.font = [UIFont systemFontOfSize:10];
+        self.label.numberOfLines = 0;
         [self.contentView addSubview:self.label];
         [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.contentView);
@@ -25,7 +27,7 @@
 }
 
 - (void)cellBuildWithData:(id<ALCollectionListDataRowProtocol>)data indexPath:(NSIndexPath *)indexPath {
-    self.contentView.backgroundColor = UIColor.lightGrayColor;
+    self.contentView.backgroundColor = [UIColor.lightGrayColor colorWithAlphaComponent:0.3];
     self.label.text = [NSString stringWithFormat:@"%@", indexPath];
 }
 
@@ -45,7 +47,7 @@
 
 - (CGSize (^)(CGSize))dynamicCellSize {
     return ^CGSize (CGSize collectionViewSize) {
-        return CGSizeMake(40, 40);
+        return CGSizeMake(100, 80);
     };
 }
 
@@ -59,7 +61,7 @@
 @implementation TestCollectionListSectionHeader
 
 - (void)headerBuildData:(id<ALCollectionListDataSectionProtocol>)data section:(NSInteger)section {
-    self.backgroundColor = UIColor.redColor;
+    self.backgroundColor = [UIColor.redColor colorWithAlphaComponent:0.3];
 }
 
 @end
@@ -72,7 +74,7 @@
 @implementation TestCollectionListSectionFooter
 
 - (void)footerBuild:(id<ALCollectionListDataSectionProtocol>)data section:(NSInteger)section {
-    self.backgroundColor = UIColor.greenColor;
+    self.backgroundColor = [UIColor.greenColor colorWithAlphaComponent:0.3];
 }
 
 @end

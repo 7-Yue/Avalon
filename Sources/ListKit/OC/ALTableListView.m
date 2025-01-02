@@ -119,9 +119,7 @@
 }
 
 - (void)bindWithData:(id<ALTableListDataProtocol>)data {
-    self.data.tablewView = nil;
     self.data = data;
-    self.data.tablewView = self.tableView;
     [self.tableView reloadData];
 }
 

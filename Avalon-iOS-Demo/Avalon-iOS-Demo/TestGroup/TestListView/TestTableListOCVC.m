@@ -10,8 +10,10 @@
 @implementation TestTableListCell
 
 - (void)cellBuildWithData:(id<ALTableListDataRowsProtocol>)data indexPath:(NSIndexPath *)indexPath {
-    self.contentView.backgroundColor = UIColor.lightGrayColor;
+    self.contentView.backgroundColor = [UIColor.lightGrayColor colorWithAlphaComponent:0.3];
     self.textLabel.text = [NSString stringWithFormat:@"%@", indexPath];
+    self.textLabel.font = [UIFont systemFontOfSize:10];
+    self.textLabel.numberOfLines = 0;
 }
 
 @end
@@ -39,7 +41,7 @@
 @implementation TestTableListHeader
 
 - (void)headerBuildData:(id<ALTableListDataSectionProtocol>)data section:(NSInteger)section {
-    self.contentView.backgroundColor = UIColor.redColor;
+    self.contentView.backgroundColor = [UIColor.redColor colorWithAlphaComponent:0.3];
 }
 
 @end
@@ -51,7 +53,7 @@
 @implementation TestTableListFooter
 
 - (void)footerBuild:(id<ALTableListDataSectionProtocol>)data section:(NSInteger)section {
-    self.contentView.backgroundColor = UIColor.greenColor;
+    self.contentView.backgroundColor = [UIColor.greenColor colorWithAlphaComponent:0.3];
 }
 
 @end

@@ -123,9 +123,7 @@
 }
 
 - (void)bindWithData:(id<ALCollectionListDataProtocol>)data {
-    self.data.collectionView = nil;
     self.data = data;
-    self.data.collectionView = self.collectionView;
     [self.collectionView reloadData];
 }
 

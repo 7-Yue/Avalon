@@ -12,8 +12,8 @@ NS_SWIFT_UNAVAILABLE("仅OC可用")
 @protocol ALCollectionListDataProtocol <NSObject>
 
 @required
-    @property(nonatomic, weak, readwrite, nullable) UICollectionView *collectionView;
     @property(nonatomic, copy, readonly, nullable) NSArray<id <ALCollectionListDataSectionProtocol>> *sections;
+@optional
 
 @end
 

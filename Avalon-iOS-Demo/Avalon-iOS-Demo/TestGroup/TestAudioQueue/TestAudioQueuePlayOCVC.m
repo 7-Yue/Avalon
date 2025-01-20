@@ -58,9 +58,9 @@
     }
 
     {
-        UIButton *stop = [self createButtonWithTitle:@"停止" sel:@selector(_stopAction)];
-        [self.view addSubview:stop];
-        [stop mas_makeConstraints:^(MASConstraintMaker *make) {
+        UIButton *stopAndReset = [self createButtonWithTitle:@"停止重制" sel:@selector(_stopAndResetAction)];
+        [self.view addSubview:stopAndReset];
+        [stopAndReset mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.view);
             make.top.equalTo(self.view).offset(300);
             make.width.equalTo(@100);
@@ -121,8 +121,8 @@
     NSLog(@"%s",__PRETTY_FUNCTION__);
 }
 
-- (void)_stopAction {
-    [[ALAudioQueuePlayer shareInstance] stop];
+- (void)_stopAndResetAction {
+    [[ALAudioQueuePlayer shareInstance] stopAndReset];
     NSLog(@"%s",__PRETTY_FUNCTION__);
 }
 

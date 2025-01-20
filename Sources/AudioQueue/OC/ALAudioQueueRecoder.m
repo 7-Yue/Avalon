@@ -147,7 +147,7 @@
     }
 }
 
-- (void)stop {
+- (void)stopAndReset {
     self.isPrepared = NO;
     OSStatus status = AudioQueueStop(self->audioQueueRef, true);
     if (status != noErr) {

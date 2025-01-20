@@ -19,7 +19,7 @@
 
 - (void)start;
 - (void)pause;
-- (void)stop;
+- (void)stopAndReset;
 
 @end
 

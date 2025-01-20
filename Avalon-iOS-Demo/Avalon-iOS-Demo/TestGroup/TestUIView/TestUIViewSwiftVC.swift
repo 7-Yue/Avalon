@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 import AvalonFramework
 
-// 这里可以让NSClassFromString，可以通过TestUIViewVC获取到class
+// !!!: 这里可以让NSClassFromString，可以通过TestUIViewVC获取到class
 @objc(TestUIViewSwiftVC)
 class TestUIViewSwiftVC: UIViewController {
     

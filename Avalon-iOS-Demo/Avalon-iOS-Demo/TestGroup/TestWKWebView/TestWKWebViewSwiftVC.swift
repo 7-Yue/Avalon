@@ -1,5 +1,6 @@
 import Foundation
 import WebKit
+import AvalonFramework
 
 class TestWKWebViewSwiftVC1: UIViewController {
     override func viewDidLoad() {

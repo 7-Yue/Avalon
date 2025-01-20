@@ -21,6 +21,11 @@
 		0A713D792C919C7500FABA2D /* NSObject+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A713D772C919C7500FABA2D /* NSObject+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A713D7A2C919C7500FABA2D /* NSObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A713D782C919C7500FABA2D /* NSObject+Extension.m */; };
 		0A88E17D2C906917000E1B7B /* AvalonFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A88E17C2C906917000E1B7B /* AvalonFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A90025D2D26B14000275429 /* File5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9002592D26B14000275429 /* File5.swift */; };
+		0A9002602D26B16A00275429 /* ALAudioQueuePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A90025F2D26B16A00275429 /* ALAudioQueuePlayer.m */; };
+		0A9002612D26B16A00275429 /* ALAudioQueuePlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A90025E2D26B16A00275429 /* ALAudioQueuePlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A9002642D26B82100275429 /* ALAudioQueueRecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9002632D26B82100275429 /* ALAudioQueueRecoder.m */; };
+		0A9002652D26B82100275429 /* ALAudioQueueRecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A9002622D26B82100275429 /* ALAudioQueueRecoder.h */; };
 		0AB6AE1C2CDB768300345028 /* ALCollectionListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AB6AE1A2CDB768300345028 /* ALCollectionListView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AB6AE1F2CDB769700345028 /* ALCollectionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6AE1E2CDB769700345028 /* ALCollectionListView.m */; };
 		0AB6AE212CDB76B000345028 /* ALCollectionListProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AB6AE202CDB76B000345028 /* ALCollectionListProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -56,6 +61,11 @@
 		0A713D782C919C7500FABA2D /* NSObject+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extension.m"; sourceTree = "<group>"; };
 		0A88E1792C906917000E1B7B /* AvalonFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AvalonFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A88E17C2C906917000E1B7B /* AvalonFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AvalonFramework.h; sourceTree = "<group>"; };
+		0A9002592D26B14000275429 /* File5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File5.swift; sourceTree = "<group>"; };
+		0A90025E2D26B16A00275429 /* ALAudioQueuePlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALAudioQueuePlayer.h; sourceTree = "<group>"; };
+		0A90025F2D26B16A00275429 /* ALAudioQueuePlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALAudioQueuePlayer.m; sourceTree = "<group>"; };
+		0A9002622D26B82100275429 /* ALAudioQueueRecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALAudioQueueRecoder.h; sourceTree = "<group>"; };
+		0A9002632D26B82100275429 /* ALAudioQueueRecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALAudioQueueRecoder.m; sourceTree = "<group>"; };
 		0AB6AE1A2CDB768300345028 /* ALCollectionListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALCollectionListView.h; sourceTree = "<group>"; };
 		0AB6AE1E2CDB769700345028 /* ALCollectionListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALCollectionListView.m; sourceTree = "<group>"; };
 		0AB6AE202CDB76B000345028 /* ALCollectionListProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALCollectionListProtocol.h; sourceTree = "<group>"; };
@@ -205,6 +215,7 @@
 		0A713D6F2C91876500FABA2D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0A90025B2D26B14000275429 /* AudioQueue */,
 				0AD0D1F02CD8EBF7000692B8 /* ListKit */,
 				0A02AC7B2CA1101C00EF61D2 /* Promise */,
 				0A02AC712C9723F400EF61D2 /* UIBox */,
@@ -237,6 +248,34 @@
 				0A88E17C2C906917000E1B7B /* AvalonFramework.h */,
 			);
 			path = AvalonFramework;
+			sourceTree = "<group>";
+		};
+		0A9002582D26B14000275429 /* OC */ = {
+			isa = PBXGroup;
+			children = (
+				0A90025E2D26B16A00275429 /* ALAudioQueuePlayer.h */,
+				0A90025F2D26B16A00275429 /* ALAudioQueuePlayer.m */,
+				0A9002622D26B82100275429 /* ALAudioQueueRecoder.h */,
+				0A9002632D26B82100275429 /* ALAudioQueueRecoder.m */,
+			);
+			path = OC;
+			sourceTree = "<group>";
+		};
+		0A90025A2D26B14000275429 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				0A9002592D26B14000275429 /* File5.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		0A90025B2D26B14000275429 /* AudioQueue */ = {
+			isa = PBXGroup;
+			children = (
+				0A9002582D26B14000275429 /* OC */,
+				0A90025A2D26B14000275429 /* Swift */,
+			);
+			path = AudioQueue;
 			sourceTree = "<group>";
 		};
 		0AD0D1EC2CD8EBF7000692B8 /* include */ = {
@@ -287,7 +326,9 @@
 				0A88E17D2C906917000E1B7B /* AvalonFramework.h in Headers */,
 				0A713D792C919C7500FABA2D /* NSObject+Extension.h in Headers */,
 				0A713D752C9193A700FABA2D /* UIView+Extension.h in Headers */,
+				0A9002612D26B16A00275429 /* ALAudioQueuePlayer.h in Headers */,
 				0A5A79C92CBE6D19002FB980 /* ALPromiseDeclaration.h in Headers */,
+				0A9002652D26B82100275429 /* ALAudioQueueRecoder.h in Headers */,
 				0A02AC812CA162E400EF61D2 /* ALPromise.h in Headers */,
 				0AB6AEBC2CF6B99900345028 /* NSArray+Extension.h in Headers */,
 				0AD0D1F92CDA39AB000692B8 /* ALTableListProtocol.h in Headers */,
@@ -378,12 +419,15 @@
 				0AB6AEBF2CF6C35B00345028 /* NSDictionary+Extension.m in Sources */,
 				0AB6AEB32CF5EBE200345028 /* NSTimer+Extension.m in Sources */,
 				0AB6AEBB2CF6B99900345028 /* NSArray+Extension.m in Sources */,
+				0A90025D2D26B14000275429 /* File5.swift in Sources */,
 				0A02AC762C97247800EF61D2 /* ALShowView.m in Sources */,
 				0A02AC802CA162E400EF61D2 /* ALPromise.m in Sources */,
 				0A5A79D42CBF62CD002FB980 /* ALPromiseExecute.m in Sources */,
 				0AB6AE8F2CEB37D300345028 /* UIDevice+Extension.m in Sources */,
 				0AB6B03A2D02A0EC00345028 /* WKWebView+Extension.m in Sources */,
 				0A713D7A2C919C7500FABA2D /* NSObject+Extension.m in Sources */,
+				0A9002642D26B82100275429 /* ALAudioQueueRecoder.m in Sources */,
+				0A9002602D26B16A00275429 /* ALAudioQueuePlayer.m in Sources */,
 				0A713D762C9193A700FABA2D /* UIView+Extension.m in Sources */,
 				0A713D722C91876500FABA2D /* File1.swift in Sources */,
 			);

@@ -1,6 +1,8 @@
 #import "ALAudioQueuePlayer.h"
 #import "ALAudioQueueConst.h"
 
+#define Log(format, ...) NSLog((@"❌ %s [Line %d] " format), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+
 // MARK: -- ALAudioQueueBufferRefWrapper
 @interface ALAudioQueueBufferRefWrapper : NSObject
 

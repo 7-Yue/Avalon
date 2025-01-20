@@ -1,7 +1,6 @@
 #ifndef ALAudioQueueConst_h
 #define ALAudioQueueConst_h
 
-#define Log(format, ...) NSLog((@"❌ %s [Line %d] " format), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #define kBufferCount 3
 
 #pragma clang diagnostic push

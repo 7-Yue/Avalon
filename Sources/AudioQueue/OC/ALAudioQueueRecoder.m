@@ -1,6 +1,8 @@
 #import "ALAudioQueueRecoder.h"
 #import "ALAudioQueueConst.h"
 
+#define Log(format, ...) NSLog((@"❌ %s [Line %d] " format), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+
 @interface ALAudioQueueRecoder()
 
 @property(nonatomic, assign) BOOL isPrepared;

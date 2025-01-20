@@ -15,6 +15,7 @@
 		0A5A79C92CBE6D19002FB980 /* ALPromiseDeclaration.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A5A79C82CBE6D19002FB980 /* ALPromiseDeclaration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A5A79D42CBF62CD002FB980 /* ALPromiseExecute.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A79D32CBF62CD002FB980 /* ALPromiseExecute.m */; };
 		0A5A79DF2CC0F166002FB980 /* ALPromiseExecute.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A5A79DE2CC0F166002FB980 /* ALPromiseExecute.h */; };
+		0A64AB172D3E4EDE00A2B8D3 /* ALAudioQueueConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A64AB162D3E4EDE00A2B8D3 /* ALAudioQueueConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A713D722C91876500FABA2D /* File1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A713D6C2C91876500FABA2D /* File1.swift */; };
 		0A713D752C9193A700FABA2D /* UIView+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A713D732C9193A700FABA2D /* UIView+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A713D762C9193A700FABA2D /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A713D742C9193A700FABA2D /* UIView+Extension.m */; };
@@ -25,7 +26,7 @@
 		0A9002602D26B16A00275429 /* ALAudioQueuePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A90025F2D26B16A00275429 /* ALAudioQueuePlayer.m */; };
 		0A9002612D26B16A00275429 /* ALAudioQueuePlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A90025E2D26B16A00275429 /* ALAudioQueuePlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A9002642D26B82100275429 /* ALAudioQueueRecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9002632D26B82100275429 /* ALAudioQueueRecoder.m */; };
-		0A9002652D26B82100275429 /* ALAudioQueueRecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A9002622D26B82100275429 /* ALAudioQueueRecoder.h */; };
+		0A9002652D26B82100275429 /* ALAudioQueueRecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A9002622D26B82100275429 /* ALAudioQueueRecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AB6AE1C2CDB768300345028 /* ALCollectionListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AB6AE1A2CDB768300345028 /* ALCollectionListView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AB6AE1F2CDB769700345028 /* ALCollectionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6AE1E2CDB769700345028 /* ALCollectionListView.m */; };
 		0AB6AE212CDB76B000345028 /* ALCollectionListProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AB6AE202CDB76B000345028 /* ALCollectionListProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,6 +55,7 @@
 		0A5A79C82CBE6D19002FB980 /* ALPromiseDeclaration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALPromiseDeclaration.h; sourceTree = "<group>"; };
 		0A5A79D32CBF62CD002FB980 /* ALPromiseExecute.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALPromiseExecute.m; sourceTree = "<group>"; };
 		0A5A79DE2CC0F166002FB980 /* ALPromiseExecute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALPromiseExecute.h; sourceTree = "<group>"; };
+		0A64AB162D3E4EDE00A2B8D3 /* ALAudioQueueConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALAudioQueueConst.h; sourceTree = "<group>"; };
 		0A713D6C2C91876500FABA2D /* File1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File1.swift; sourceTree = "<group>"; };
 		0A713D732C9193A700FABA2D /* UIView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		0A713D742C9193A700FABA2D /* UIView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				0A90025F2D26B16A00275429 /* ALAudioQueuePlayer.m */,
 				0A9002622D26B82100275429 /* ALAudioQueueRecoder.h */,
 				0A9002632D26B82100275429 /* ALAudioQueueRecoder.m */,
+				0A64AB162D3E4EDE00A2B8D3 /* ALAudioQueueConst.h */,
 			);
 			path = OC;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A64AB172D3E4EDE00A2B8D3 /* ALAudioQueueConst.h in Headers */,
 				0A88E17D2C906917000E1B7B /* AvalonFramework.h in Headers */,
 				0A713D792C919C7500FABA2D /* NSObject+Extension.h in Headers */,
 				0A713D752C9193A700FABA2D /* UIView+Extension.h in Headers */,

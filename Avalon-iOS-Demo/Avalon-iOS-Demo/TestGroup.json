@@ -209,12 +209,22 @@
         }
 ,
         {
-          "name": "TestAudioQueueOCVC.h",
+          "name": "TestAudioQueuePlayOCVC.h",
           "type": "file"
         }
 ,
         {
-          "name": "TestAudioQueueOCVC.m",
+          "name": "TestAudioQueuePlayOCVC.m",
+          "type": "file"
+        }
+,
+        {
+          "name": "TestAudioQueueRecordOCVC.h",
+          "type": "file"
+        }
+,
+        {
+          "name": "TestAudioQueueRecordOCVC.m",
           "type": "file"
         }
 

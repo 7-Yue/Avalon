@@ -1,7 +1,5 @@
 #import "ALAudioQueuePlayer.h"
-
-#define Log(format, ...) NSLog((@"❌ %s [Line %d] " format), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
-#define kBufferCount 3
+#import "ALAudioQueueConst.h"
 
 // MARK: -- ALAudioQueueBufferRefWrapper
 @interface ALAudioQueueBufferRefWrapper : NSObject
@@ -105,6 +103,7 @@
         for (int i = 0; i < kBufferCount; i++) {
             self->audioBuffers[i] = NULL;
         }
+        memset(&self->inFormat, 0, sizeof(self->inFormat));
     }
     // 采样率hz
     self->inFormat.mSampleRate = mSampleRate;
@@ -124,7 +123,7 @@
     self->inFormat.mBitsPerChannel = mBitsPerChannel;
     // 使用player的内部线程播放
     OSStatus status = AudioQueueNewOutput(&self->inFormat,
-                                          ALAudioPlayerAQInputCallback,
+                                          ALAudioPlayerOutputCallback,
                                           (__bridge void *)self,
                                           NULL,
                                           kCFRunLoopCommonModes,
@@ -229,13 +228,14 @@
     for (int i = 0; i < kBufferCount; i++) {
         self->audioBuffers[i] = NULL;
     }
+    memset(&self->inFormat, 0, sizeof(self->inFormat));
 }
 
 @end
 
-void ALAudioPlayerAQInputCallback(void *userData,
-                                  AudioQueueRef queueRef,
-                                  AudioQueueBufferRef queueBufferRef) {
+void ALAudioPlayerOutputCallback(void *userData,
+                                 AudioQueueRef queueRef,
+                                 AudioQueueBufferRef queueBufferRef) {
     ALAudioQueuePlayer *o = (__bridge ALAudioQueuePlayer *)userData;
     [o _playBufferCallBack:queueBufferRef];
 }

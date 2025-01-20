@@ -23,8 +23,8 @@
 
 @end
 
-void ALAudioPlayerAQInputCallback(void * _Nullable userData,
-                                  AudioQueueRef _Nonnull queueRef,
-                                  AudioQueueBufferRef _Nonnull queueBufferRef);
+void ALAudioPlayerOutputCallback(void * _Nullable userData,
+                                 AudioQueueRef _Nonnull queueRef,
+                                 AudioQueueBufferRef _Nonnull queueBufferRef);
 
 

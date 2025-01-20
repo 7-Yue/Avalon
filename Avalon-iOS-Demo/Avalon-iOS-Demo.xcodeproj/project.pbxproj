@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A02AC862CA1669200EF61D2 /* TestPromiseOCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A02AC852CA1669200EF61D2 /* TestPromiseOCVC.m */; };
-		0A64AA582D3DF7FB00A2B8D3 /* TestAudioQueueOCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A64AA572D3DF7FB00A2B8D3 /* TestAudioQueueOCVC.m */; };
+		0A64AA582D3DF7FB00A2B8D3 /* TestAudioQueuePlayOCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A64AA572D3DF7FB00A2B8D3 /* TestAudioQueuePlayOCVC.m */; };
 		0A64AAEF2D3E3A5A00A2B8D3 /* data_10.dat in Resources */ = {isa = PBXBuildFile; fileRef = 0A64AAD22D3E3A5A00A2B8D3 /* data_10.dat */; };
 		0A64AAF02D3E3A5A00A2B8D3 /* data_34.dat in Resources */ = {isa = PBXBuildFile; fileRef = 0A64AAEA2D3E3A5A00A2B8D3 /* data_34.dat */; };
 		0A64AAF12D3E3A5A00A2B8D3 /* data_21.dat in Resources */ = {isa = PBXBuildFile; fileRef = 0A64AADD2D3E3A5A00A2B8D3 /* data_21.dat */; };
@@ -48,6 +48,7 @@
 		0A64AB132D3E3A5A00A2B8D3 /* data_16.dat in Resources */ = {isa = PBXBuildFile; fileRef = 0A64AAD82D3E3A5A00A2B8D3 /* data_16.dat */; };
 		0A64AB142D3E3A5A00A2B8D3 /* data_30.dat in Resources */ = {isa = PBXBuildFile; fileRef = 0A64AAE62D3E3A5A00A2B8D3 /* data_30.dat */; };
 		0A64AB152D3E3A5A00A2B8D3 /* data_27.dat in Resources */ = {isa = PBXBuildFile; fileRef = 0A64AAE32D3E3A5A00A2B8D3 /* data_27.dat */; };
+		0A64AB1A2D3E5A0200A2B8D3 /* TestAudioQueueRecordOCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A64AB192D3E5A0200A2B8D3 /* TestAudioQueueRecordOCVC.m */; };
 		0A713D7F2C92CF4F00FABA2D /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0A713D7E2C92CF4F00FABA2D /* SnapKit-Dynamic */; };
 		0A713D802C92CFD000FABA2D /* SnapKit-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0A713D7E2C92CF4F00FABA2D /* SnapKit-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		0A713D882C92F1B000FABA2D /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A713D872C92F1B000FABA2D /* ListViewController.swift */; };
@@ -98,8 +99,8 @@
 /* Begin PBXFileReference section */
 		0A02AC842CA1669200EF61D2 /* TestPromiseOCVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestPromiseOCVC.h; sourceTree = "<group>"; };
 		0A02AC852CA1669200EF61D2 /* TestPromiseOCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestPromiseOCVC.m; sourceTree = "<group>"; };
-		0A64AA562D3DF7FB00A2B8D3 /* TestAudioQueueOCVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAudioQueueOCVC.h; sourceTree = "<group>"; };
-		0A64AA572D3DF7FB00A2B8D3 /* TestAudioQueueOCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAudioQueueOCVC.m; sourceTree = "<group>"; };
+		0A64AA562D3DF7FB00A2B8D3 /* TestAudioQueuePlayOCVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAudioQueuePlayOCVC.h; sourceTree = "<group>"; };
+		0A64AA572D3DF7FB00A2B8D3 /* TestAudioQueuePlayOCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAudioQueuePlayOCVC.m; sourceTree = "<group>"; };
 		0A64AAC82D3E3A5A00A2B8D3 /* data_0.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = data_0.dat; sourceTree = "<group>"; };
 		0A64AAC92D3E3A5A00A2B8D3 /* data_1.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = data_1.dat; sourceTree = "<group>"; };
 		0A64AACA2D3E3A5A00A2B8D3 /* data_2.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = data_2.dat; sourceTree = "<group>"; };
@@ -139,6 +140,8 @@
 		0A64AAEC2D3E3A5A00A2B8D3 /* data_36.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = data_36.dat; sourceTree = "<group>"; };
 		0A64AAED2D3E3A5A00A2B8D3 /* data_37.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = data_37.dat; sourceTree = "<group>"; };
 		0A64AAEE2D3E3A5A00A2B8D3 /* data_38.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = data_38.dat; sourceTree = "<group>"; };
+		0A64AB182D3E5A0200A2B8D3 /* TestAudioQueueRecordOCVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAudioQueueRecordOCVC.h; sourceTree = "<group>"; };
+		0A64AB192D3E5A0200A2B8D3 /* TestAudioQueueRecordOCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAudioQueueRecordOCVC.m; sourceTree = "<group>"; };
 		0A713D872C92F1B000FABA2D /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		0A713D8B2C92F71300FABA2D /* TestUILabel1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUILabel1VC.swift; sourceTree = "<group>"; };
 		0A713D8D2C92F73F00FABA2D /* TestUIViewSwiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUIViewSwiftVC.swift; sourceTree = "<group>"; };
@@ -421,8 +424,10 @@
 			isa = PBXGroup;
 			children = (
 				0A64AA592D3DFF8D00A2B8D3 /* TTSData */,
-				0A64AA562D3DF7FB00A2B8D3 /* TestAudioQueueOCVC.h */,
-				0A64AA572D3DF7FB00A2B8D3 /* TestAudioQueueOCVC.m */,
+				0A64AA562D3DF7FB00A2B8D3 /* TestAudioQueuePlayOCVC.h */,
+				0A64AA572D3DF7FB00A2B8D3 /* TestAudioQueuePlayOCVC.m */,
+				0A64AB182D3E5A0200A2B8D3 /* TestAudioQueueRecordOCVC.h */,
+				0A64AB192D3E5A0200A2B8D3 /* TestAudioQueueRecordOCVC.m */,
 			);
 			path = TestAudioQueue;
 			sourceTree = "<group>";
@@ -580,11 +585,12 @@
 				0A713DB42C94151100FABA2D /* MASViewConstraint.m in Sources */,
 				0A713DB22C94151100FABA2D /* MASLayoutConstraint.m in Sources */,
 				0A713D922C9411B700FABA2D /* TestUIViewOCVC.m in Sources */,
-				0A64AA582D3DF7FB00A2B8D3 /* TestAudioQueueOCVC.m in Sources */,
+				0A64AA582D3DF7FB00A2B8D3 /* TestAudioQueuePlayOCVC.m in Sources */,
 				0A88E1942C906B5B000E1B7B /* RootViewController.swift in Sources */,
 				0A713DB72C94151100FABA2D /* View+MASAdditions.m in Sources */,
 				0A713DAF2C94151100FABA2D /* MASCompositeConstraint.m in Sources */,
 				0AB6AE952CEB3E2500345028 /* TestUIDeviceOCVC.m in Sources */,
+				0A64AB1A2D3E5A0200A2B8D3 /* TestAudioQueueRecordOCVC.m in Sources */,
 				0A713DB62C94151100FABA2D /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				0A713DB12C94151100FABA2D /* MASConstraintMaker.m in Sources */,
 				0A88E1902C906B5B000E1B7B /* AppDelegate.swift in Sources */,

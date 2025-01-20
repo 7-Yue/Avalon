@@ -2,7 +2,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TestAudioQueueOCVC : UIViewController
+@interface TestAudioQueuePlayOCVC : UIViewController
 
 @end
 

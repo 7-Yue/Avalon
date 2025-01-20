@@ -1,12 +1,12 @@
-#import "TestAudioQueueOCVC.h"
+#import "TestAudioQueuePlayOCVC.h"
 #import "Masonry.h"
 #import <AvalonFramework/AvalonFramework.h>
 
-@interface TestAudioQueueOCVC ()
+@interface TestAudioQueuePlayOCVC ()
 
 @end
 
-@implementation TestAudioQueueOCVC
+@implementation TestAudioQueuePlayOCVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

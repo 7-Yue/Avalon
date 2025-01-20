@@ -11,6 +11,8 @@ FOUNDATION_EXPORT const unsigned char AvalonFrameworkVersionString[];
 #pragma mark - AudioQueue
 
 #import <AvalonFramework/ALAudioQueuePlayer.h>
+#import <AvalonFramework/ALAudioQueueRecoder.h>
+#import <AvalonFramework/ALAudioQueueConst.h>
 
 #pragma mark - ListKit
 

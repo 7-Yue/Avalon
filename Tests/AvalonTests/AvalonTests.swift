@@ -7,6 +7,8 @@ import XCTest
 @testable import AvalonPromiseSwift
 @testable import AvalonListKitOC
 @testable import AvalonListKitSwift
+@testable import AvalonAudioQueueOC
+@testable import AvalonAudioQueueSwift
 
 final class AvalonTests: XCTestCase {
     func testExample() throws {
@@ -15,7 +17,7 @@ final class AvalonTests: XCTestCase {
         UIView().setAl_layoutCallback {
             
         }
-
+        
         // Defining Test Cases and Test Methods
         // https://developer.apple.com/documentation/xctest/defining_test_cases_and_test_methods
     }

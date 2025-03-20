@@ -1,11 +1,11 @@
 #ifndef ALAudioQueueConst_h
 #define ALAudioQueueConst_h
 
+#include <CoreAudioTypes/CoreAudioTypes.h>
+
 #define kBufferCount 3
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wunused-function"
-static AudioStreamBasicDescription ALStandardPCMAudioStreamBasicDescription(void) {
+static inline AudioStreamBasicDescription GetDefaultAudioFormat(void) {
     AudioStreamBasicDescription audioFormat;
     memset(&audioFormat, 0, sizeof(audioFormat));
     audioFormat.mFormatID = kAudioFormatLinearPCM;
@@ -18,6 +18,5 @@ static AudioStreamBasicDescription ALStandardPCMAudioStreamBasicDescription(void
     audioFormat.mFormatFlags = kAudioFormatFlagIsSignedInteger | kAudioFormatFlagIsPacked;
     return audioFormat;
 }
-#pragma clang diagnostic pop
 
 #endif /* ALAudioQueueConst_h */

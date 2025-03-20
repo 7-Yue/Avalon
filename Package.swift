@@ -20,6 +20,8 @@ let package = Package(
                 "AvalonPromiseSwift",
                 "AvalonListKitOC",
                 "AvalonListKitSwift",
+                "AvalonAudioQueueOC",
+                "AvalonAudioQueueSwift",
             ]),
     ],
     dependencies: [
@@ -46,6 +48,11 @@ let package = Package(
                 publicHeadersPath: "include"),
         .target(name: "AvalonListKitSwift",
                 path: "Sources/ListKit/Swift"),
+        .target(name: "AvalonAudioQueueOC",
+                path: "Sources/AudioQueue/OC",
+                publicHeadersPath: "include"),
+        .target(name: "AvalonAudioQueueSwift",
+                path: "Sources/AudioQueue/Swift"),
         .testTarget(
             name: "AvalonTests",
             dependencies: [
@@ -57,6 +64,8 @@ let package = Package(
                 "AvalonPromiseSwift",
                 "AvalonListKitOC",
                 "AvalonListKitSwift",
+                "AvalonAudioQueueOC",
+                "AvalonAudioQueueSwift",
             ]),
     ]
 )

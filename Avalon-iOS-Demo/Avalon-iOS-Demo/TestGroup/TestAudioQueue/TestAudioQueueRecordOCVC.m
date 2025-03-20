@@ -145,7 +145,7 @@
 }
 
 - (void)_prepareAction {
-    AudioStreamBasicDescription des = ALStandardPCMAudioStreamBasicDescription();
+    AudioStreamBasicDescription des = GetDefaultAudioFormat();
     [[ALAudioQueueRecoder shareInstance] recoderPrepareWithSampleRate:des.mSampleRate
                                                              formatID:des.mFormatID
                                                           formatFlags:des.mFormatFlags
@@ -182,7 +182,7 @@
 }
 
 - (void)_play_prepareAction {
-    AudioStreamBasicDescription des = ALStandardPCMAudioStreamBasicDescription();
+    AudioStreamBasicDescription des = GetDefaultAudioFormat();
     [[ALAudioQueuePlayer shareInstance] playerPrepareWithSampleRate:des.mSampleRate
                                                            formatID:des.mFormatID
                                                         formatFlags:des.mFormatFlags

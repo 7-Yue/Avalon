@@ -27,19 +27,19 @@
 - (void)forwardInvocation:(NSInvocation *)invocation {
     SEL selector = [invocation selector];
 
-    if ([self.internalTarget respondsToSelector:selector]) {
-        // 先尝试 internalTarget 调用
-        [invocation invokeWithTarget:self.internalTarget];
-    } else if ([self.externalTarget respondsToSelector:selector]) {
-        // 再尝试 externalTarget 调用
+    if ([self.externalTarget respondsToSelector:selector]) {
+        // 先尝试 externalTarget 调用
         [invocation invokeWithTarget:self.externalTarget];
+    } else if ([self.internalTarget respondsToSelector:selector]) {
+        // 再尝试 internalTarget 调用
+        [invocation invokeWithTarget:self.internalTarget];
     }
 }
 
 - (BOOL)respondsToSelector:(SEL)aSelector {
     // 确保 respondsToSelector 正确反映方法的实现位置
-    return [self.internalTarget respondsToSelector:aSelector] ||
-           [self.externalTarget respondsToSelector:aSelector];
+    return [self.externalTarget respondsToSelector:aSelector] ||
+        [self.internalTarget respondsToSelector:aSelector];
 }
 
 @end
@@ -52,21 +52,13 @@
 
 @implementation ALCustomUITableView
 
-- (void)setDelegate:(id<UITableViewDelegate>)delegate {
-    if (delegate && ![delegate isKindOfClass:ALTableListView.class]) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"不再需要设置delegate"
-                                     userInfo:nil];
-    }
+- (void)setDelegate:(id<UITableViewDelegate>)delegate { 
+    NSAssert(!delegate || delegate.class == ALTableListViewProxy.class, @"不再需要设置delegate");
     [super setDelegate:delegate];
 }
 
 - (void)setDataSource:(id<UITableViewDataSource>)dataSource {
-    if (dataSource && ![dataSource isKindOfClass:ALTableListView.class]) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"不再需要设置dataSource"
-                                     userInfo:nil];
-    }
+    NSAssert(!dataSource || dataSource.class == ALTableListViewProxy.class, @"不再需要设置dataSource");
     [super setDataSource:dataSource];
 }
 
@@ -136,18 +128,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     id<ALTableListDataRowsProtocol> rowData = self.data.sections[indexPath.section].rows[indexPath.row];
     Class relatedCell = rowData.relatedCell;
-    if (![relatedCell isSubclassOfClass:UITableViewCell.class]) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"必须是UITableViewCell的子类"
-                                     userInfo:nil];
-    }
-    if (![relatedCell conformsToProtocol:@protocol(ALTableListCellProtocol)]) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"必须遵循ALTableListCellProtocol协议"
-                                     userInfo:nil];
-    }
+    NSAssert([relatedCell isSubclassOfClass:UITableViewCell.class], @"必须是UITableViewCell的子类");
+    NSAssert([relatedCell conformsToProtocol:@protocol(ALTableListCellProtocol)], @"必须遵循ALTableListCellProtocol协议");
     if (![self.registerCellList containsObject:relatedCell]) {
         [tableView registerClass:relatedCell forCellReuseIdentifier:NSStringFromClass(relatedCell)];
+        [self.registerCellList addObject:relatedCell];
     }
     UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:NSStringFromClass(relatedCell)
                                                            forIndexPath:indexPath];
@@ -169,23 +154,16 @@
     if (!relatedHeader) {
         return nil;
     }
-    if (![relatedHeader isSubclassOfClass:UITableViewHeaderFooterView.class]) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"必须是UITableViewHeaderFooterView的子类"
-                                     userInfo:nil];
-    }
-    if (![relatedHeader conformsToProtocol:@protocol(ALTableListHeaderProtocol)]) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"必须遵循ALTableListHeaderProtocol协议"
-                                     userInfo:nil];
-    }
+    NSAssert([relatedHeader isSubclassOfClass:UITableViewHeaderFooterView.class], @"必须是UITableViewHeaderFooterView的子类");
+    NSAssert([relatedHeader conformsToProtocol:@protocol(ALTableListSupplementaryViewProtocol)], @"必须遵循ALTableListSupplementaryViewProtocol协议");
     if (![self.registerHeaderViewList containsObject:relatedHeader]) {
         [tableView registerClass:relatedHeader forHeaderFooterViewReuseIdentifier:NSStringFromClass(relatedHeader)];
+        [self.registerHeaderViewList addObject:relatedHeader];
     }
     UITableViewHeaderFooterView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(relatedHeader)];
-    if ([header conformsToProtocol:@protocol(ALTableListHeaderProtocol)]) {
-        id<ALTableListHeaderProtocol> tempHeader = (id<ALTableListHeaderProtocol>)header;
-        [tempHeader headerBuildData:sectionData section:section];
+    if ([header conformsToProtocol:@protocol(ALTableListSupplementaryViewProtocol)]) {
+        id<ALTableListSupplementaryViewProtocol> tempHeader = (id<ALTableListSupplementaryViewProtocol>)header;
+        [tempHeader buildData:sectionData section:section];
     }
     return header;
 }
@@ -199,23 +177,16 @@
     if (!relatedFooter) {
         return nil;
     }
-    if (![relatedFooter isSubclassOfClass:UITableViewHeaderFooterView.class]) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"必须是UITableViewHeaderFooterView的子类"
-                                     userInfo:nil];
-    }
-    if (![relatedFooter conformsToProtocol:@protocol(ALTableListFooterProtocol)]) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"必须遵循ALTableListFooterProtocol协议"
-                                     userInfo:nil];
-    }
+    NSAssert([relatedFooter isSubclassOfClass:UITableViewHeaderFooterView.class], @"必须是UITableViewHeaderFooterView的子类");
+    NSAssert([relatedFooter conformsToProtocol:@protocol(ALTableListSupplementaryViewProtocol)], @"必须遵循ALTableListSupplementaryViewProtocol协议");
     if (![self.registerFooterViewList containsObject:relatedFooter]) {
         [tableView registerClass:relatedFooter forHeaderFooterViewReuseIdentifier:NSStringFromClass(relatedFooter)];
+        [self.registerFooterViewList addObject:relatedFooter];
     }
     UITableViewHeaderFooterView *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(relatedFooter)];
-    if ([footer conformsToProtocol:@protocol(ALTableListFooterProtocol)]) {
-        id<ALTableListFooterProtocol> tempFooter = (id<ALTableListFooterProtocol>)footer;
-        [tempFooter footerBuild:sectionData section:section];
+    if ([footer conformsToProtocol:@protocol(ALTableListSupplementaryViewProtocol)]) {
+        id<ALTableListSupplementaryViewProtocol> tempFooter = (id<ALTableListSupplementaryViewProtocol>)footer;
+        [tempFooter buildData:sectionData section:section];
     }
     return footer;
 }
@@ -228,17 +199,17 @@
     }
 }
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
-    if ([view conformsToProtocol:@protocol(ALTableListHeaderProtocol)] &&
-        [view respondsToSelector:@selector(headerWillDisplay)]) {
-        id<ALTableListHeaderProtocol> tempHeader = (id<ALTableListHeaderProtocol>)view;
-        [tempHeader headerWillDisplay];
+    if ([view conformsToProtocol:@protocol(ALTableListSupplementaryViewProtocol)] &&
+        [view respondsToSelector:@selector(viewWillDisplay)]) {
+        id<ALTableListSupplementaryViewProtocol> tempHeader = (id<ALTableListSupplementaryViewProtocol>)view;
+        [tempHeader viewWillDisplay];
     }
 }
 - (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {
-    if ([view conformsToProtocol:@protocol(ALTableListFooterProtocol)] &&
-        [view respondsToSelector:@selector(footerWillDisplay)]) {
-        id<ALTableListFooterProtocol> tempFooter = (id<ALTableListFooterProtocol>)view;
-        [tempFooter footerWillDisplay];
+    if ([view conformsToProtocol:@protocol(ALTableListSupplementaryViewProtocol)] &&
+        [view respondsToSelector:@selector(viewWillDisplay)]) {
+        id<ALTableListSupplementaryViewProtocol> tempFooter = (id<ALTableListSupplementaryViewProtocol>)view;
+        [tempFooter viewWillDisplay];
     }
 }
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
@@ -249,17 +220,17 @@
     }
 }
 - (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section {
-    if ([view conformsToProtocol:@protocol(ALTableListHeaderProtocol)] &&
-        [view respondsToSelector:@selector(headerEndDisplay)]) {
-        id<ALTableListHeaderProtocol> tempHeader = (id<ALTableListHeaderProtocol>)view;
-        [tempHeader headerEndDisplay];
+    if ([view conformsToProtocol:@protocol(ALTableListSupplementaryViewProtocol)] &&
+        [view respondsToSelector:@selector(viewEndDisplay)]) {
+        id<ALTableListSupplementaryViewProtocol> tempHeader = (id<ALTableListSupplementaryViewProtocol>)view;
+        [tempHeader viewEndDisplay];
     }
 }
 - (void)tableView:(UITableView *)tableView didEndDisplayingFooterView:(UIView *)view forSection:(NSInteger)section {
-    if ([view conformsToProtocol:@protocol(ALTableListFooterProtocol)] &&
-        [view respondsToSelector:@selector(footerEndDisplay)]) {
-        id<ALTableListFooterProtocol> tempFooter = (id<ALTableListFooterProtocol>)view;
-        [tempFooter footerEndDisplay];
+    if ([view conformsToProtocol:@protocol(ALTableListSupplementaryViewProtocol)] &&
+        [view respondsToSelector:@selector(viewEndDisplay)]) {
+        id<ALTableListSupplementaryViewProtocol> tempFooter = (id<ALTableListSupplementaryViewProtocol>)view;
+        [tempFooter viewEndDisplay];
     }
 }
 

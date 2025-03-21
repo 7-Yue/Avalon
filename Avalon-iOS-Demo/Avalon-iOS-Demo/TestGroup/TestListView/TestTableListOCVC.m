@@ -35,24 +35,24 @@
 @end
 
 //  MARK:   --  TestTableListHeader
-@interface TestTableListHeader : UITableViewHeaderFooterView <ALTableListHeaderProtocol>
+@interface TestTableListHeader : UITableViewHeaderFooterView <ALTableListSupplementaryViewProtocol>
 
 @end
 @implementation TestTableListHeader
 
-- (void)headerBuildData:(id<ALTableListDataSectionProtocol>)data section:(NSInteger)section {
+- (void)buildData:(id<ALTableListDataSectionProtocol>)data section:(NSInteger)section {
     self.contentView.backgroundColor = [UIColor.redColor colorWithAlphaComponent:0.3];
 }
 
 @end
 
 //  MARK:   --  TestTableListFooter
-@interface TestTableListFooter : UITableViewHeaderFooterView <ALTableListFooterProtocol>
+@interface TestTableListFooter : UITableViewHeaderFooterView <ALTableListSupplementaryViewProtocol>
 
 @end
 @implementation TestTableListFooter
 
-- (void)footerBuild:(id<ALTableListDataSectionProtocol>)data section:(NSInteger)section {
+- (void)buildData:(id<ALTableListDataSectionProtocol>)data section:(NSInteger)section {
     self.contentView.backgroundColor = [UIColor.greenColor colorWithAlphaComponent:0.3];
 }
 
@@ -86,10 +86,10 @@
     return 20;
 }
 
-- (Class<ALTableListHeaderProtocol>)relatedHeader {
+- (Class<ALTableListSupplementaryViewProtocol>)relatedHeader {
     return TestTableListHeader.class;
 }
-- (Class<ALTableListFooterProtocol>)relatedFooter {
+- (Class<ALTableListSupplementaryViewProtocol>)relatedFooter {
     return TestTableListFooter.class;
 }
 

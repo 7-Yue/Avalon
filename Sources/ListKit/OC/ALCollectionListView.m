@@ -27,19 +27,19 @@
 - (void)forwardInvocation:(NSInvocation *)invocation {
     SEL selector = [invocation selector];
 
-    if ([self.internalTarget respondsToSelector:selector]) {
-        // 先尝试 internalTarget 调用
-        [invocation invokeWithTarget:self.internalTarget];
-    } else if ([self.externalTarget respondsToSelector:selector]) {
-        // 再尝试 externalTarget 调用
+    if ([self.externalTarget respondsToSelector:selector]) {
+        // 先尝试 externalTarget 调用
         [invocation invokeWithTarget:self.externalTarget];
+    } else if ([self.internalTarget respondsToSelector:selector]) {
+        // 再尝试 internalTarget 调用
+        [invocation invokeWithTarget:self.internalTarget];
     }
 }
 
 - (BOOL)respondsToSelector:(SEL)aSelector {
     // 确保 respondsToSelector 正确反映方法的实现位置
-    return [self.internalTarget respondsToSelector:aSelector] ||
-           [self.externalTarget respondsToSelector:aSelector];
+    return [self.externalTarget respondsToSelector:aSelector] ||
+        [self.internalTarget respondsToSelector:aSelector];
 }
 
 @end
@@ -53,20 +53,12 @@
 @implementation ALCustomUICollectionView
 
 - (void)setDelegate:(id<UICollectionViewDelegate>)delegate {
-    if (delegate && ![delegate isKindOfClass:ALCollectionListView.class]) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"不再需要设置delegate"
-                                     userInfo:nil];
-    }
+    NSAssert(!delegate || delegate.class == ALCollectionListViewProxy.class, @"不再需要设置delegate");
     [super setDelegate:delegate];
 }
 
 - (void)setDataSource:(id<UICollectionViewDataSource>)dataSource {
-    if (dataSource && ![dataSource isKindOfClass:ALCollectionListView.class]) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"不再需要设置dataSource"
-                                     userInfo:nil];
-    }
+    NSAssert(!dataSource || dataSource.class == ALCollectionListViewProxy.class, @"不再需要设置dataSource");
     [super setDataSource:dataSource];
 }
 
@@ -133,9 +125,7 @@
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     id<ALCollectionListDataRowProtocol> rowData = self.data.sections[indexPath.section].rows[indexPath.row];
-    if ([rowData respondsToSelector:@selector(cellSize)]) {
-        return rowData.cellSize;
-    } else if ([rowData respondsToSelector:@selector(dynamicCellSize)]) {
+    if ([rowData respondsToSelector:@selector(dynamicCellSize)]) {
         return rowData.dynamicCellSize(collectionView.frame.size);
     } else {
         return CGSizeZero;
@@ -206,18 +196,11 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     id<ALCollectionListDataRowProtocol> rowData = self.data.sections[indexPath.section].rows[indexPath.row];
     Class relatedCell = rowData.relatedCell;
-    if (![relatedCell isSubclassOfClass:UICollectionViewCell.class]) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"必须是UICollectionViewCell的子类"
-                                     userInfo:nil];
-    }
-    if (![relatedCell conformsToProtocol:@protocol(ALCollectionListCellProtocol)]) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"必须遵循ALCollectionListCellProtocol协议"
-                                     userInfo:nil];
-    }
+    NSAssert([relatedCell isSubclassOfClass:UICollectionViewCell.class], @"必须是UICollectionViewCell的子类");
+    NSAssert([relatedCell conformsToProtocol:@protocol(ALCollectionListCellProtocol)], @"必须遵循ALCollectionListCellProtocol协议");
     if (![self.registerCellList containsObject:relatedCell]) {
         [collectionView registerClass:relatedCell forCellWithReuseIdentifier:NSStringFromClass(relatedCell)];
+        [self.registerCellList addObject:relatedCell];
     }
     UICollectionViewCell *cell =[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(relatedCell)
                                                                           forIndexPath:indexPath];
@@ -233,69 +216,58 @@
                                  atIndexPath:(NSIndexPath *)indexPath {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         id<ALCollectionListDataSectionProtocol> sectionData = self.data.sections[indexPath.section];
-        if (![sectionData respondsToSelector:@selector(relatedHeader)]) {
-            return nil;
-        }
-        Class relatedHeader = sectionData.relatedHeader;
-        if (!relatedHeader) {
-            return nil;
-        }
-        if (![relatedHeader isSubclassOfClass:UICollectionReusableView.class]) {
-            @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                           reason:@"必须是UICollectionReusableView的子类"
-                                         userInfo:nil];
-        }
-        if (![relatedHeader conformsToProtocol:@protocol(ALCollectionListHeaderProtocol)]) {
-            @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                           reason:@"必须遵循ALCollectionListHeaderProtocol协议"
-                                         userInfo:nil];
+        Class relatedHeader;
+        if (![sectionData respondsToSelector:@selector(relatedHeader)] ||
+            !sectionData.relatedHeader) {
+            relatedHeader = UICollectionReusableView.class;
+        } else {
+            relatedHeader = sectionData.relatedHeader;
+            NSAssert([relatedHeader isSubclassOfClass:UICollectionReusableView.class], @"必须是UICollectionReusableView的子类");
+            NSAssert([relatedHeader conformsToProtocol:@protocol(ALCollectionListSupplementaryViewProtocol)], @"必须遵循ALCollectionListSupplementaryViewProtocol协议");
         }
         if (![self.registerHeaderViewList containsObject:relatedHeader]) {
             [collectionView registerClass:relatedHeader
                forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                       withReuseIdentifier:NSStringFromClass(relatedHeader)];
+            [self.registerHeaderViewList addObject:relatedHeader];
         }
-        UICollectionReusableView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-                                                                              withReuseIdentifier:NSStringFromClass(relatedHeader)
-                                                                                     forIndexPath:indexPath];
-        if ([header conformsToProtocol:@protocol(ALCollectionListHeaderProtocol)]) {
-            id<ALCollectionListHeaderProtocol> tempHeader = (id<ALCollectionListHeaderProtocol>)header;
-            [tempHeader headerBuildData:sectionData section:indexPath.section];
+        UICollectionReusableView *header =
+        [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                                           withReuseIdentifier:NSStringFromClass(relatedHeader)
+                                                  forIndexPath:indexPath];
+        if ([header conformsToProtocol:@protocol(ALCollectionListSupplementaryViewProtocol)]) {
+            id<ALCollectionListSupplementaryViewProtocol> tempHeader = (id<ALCollectionListSupplementaryViewProtocol>)header;
+            [tempHeader buildData:sectionData section:indexPath.section];
         }
         return header;
     } else if (([kind isEqualToString:UICollectionElementKindSectionFooter])) {
         id<ALCollectionListDataSectionProtocol> sectionData = self.data.sections[indexPath.section];
-        if (![sectionData respondsToSelector:@selector(relatedFooter)]) {
-            return nil;
-        }
-        Class relatedFooter = sectionData.relatedFooter;
-        if (!relatedFooter) {
-            return nil;
-        }
-        if (![relatedFooter isSubclassOfClass:UICollectionReusableView.class]) {
-            @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                           reason:@"必须是UICollectionReusableView的子类"
-                                         userInfo:nil];
-        }
-        if (![relatedFooter conformsToProtocol:@protocol(ALCollectionListFooterProtocol)]) {
-            @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                           reason:@"必须遵循ALCollectionListFooterProtocol协议"
-                                         userInfo:nil];
+        Class relatedFooter;
+        if (![sectionData respondsToSelector:@selector(relatedFooter)] ||
+            !sectionData.relatedFooter) {
+            relatedFooter = UICollectionReusableView.class;
+        } else {
+            relatedFooter = sectionData.relatedFooter;
+            NSAssert([relatedFooter isSubclassOfClass:UICollectionReusableView.class], @"必须是UICollectionReusableView的子类");
+            NSAssert([relatedFooter conformsToProtocol:@protocol(ALCollectionListSupplementaryViewProtocol)], @"必须遵循ALCollectionListSupplementaryViewProtocol协议");
         }
         if (![self.registerFooterViewList containsObject:relatedFooter]) {
             [collectionView registerClass:relatedFooter
                forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
                       withReuseIdentifier:NSStringFromClass(relatedFooter)];
+            [self.registerFooterViewList addObject:relatedFooter];
         }
-        UICollectionReusableView *footer = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
-                                                                              withReuseIdentifier:NSStringFromClass(relatedFooter)
-                                                                                     forIndexPath:indexPath];
-        if ([footer conformsToProtocol:@protocol(ALCollectionListFooterProtocol)]) {
-            id<ALCollectionListFooterProtocol> tempFooter = (id<ALCollectionListFooterProtocol>)footer;
-            [tempFooter footerBuild:sectionData section:indexPath.section];
+        UICollectionReusableView *footer =
+        [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                                           withReuseIdentifier:NSStringFromClass(relatedFooter)
+                                                  forIndexPath:indexPath];
+        if ([footer conformsToProtocol:@protocol(ALCollectionListSupplementaryViewProtocol)]) {
+            id<ALCollectionListSupplementaryViewProtocol> tempFooter = (id<ALCollectionListSupplementaryViewProtocol>)footer;
+            [tempFooter buildData:sectionData section:indexPath.section];
         }
         return footer;
     } else {
+        NSAssert(NO, @"不支持footer和header以外的视图");
         return [UICollectionReusableView new];
     }
 }
@@ -317,19 +289,20 @@ willDisplaySupplementaryView:(UICollectionReusableView *)view
         forElementKind:(NSString *)elementKind
            atIndexPath:(NSIndexPath *)indexPath {
     if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
-        if ([view conformsToProtocol:@protocol(ALCollectionListHeaderProtocol)] &&
-            [view respondsToSelector:@selector(headerWillDisplay)]) {
-            id<ALCollectionListHeaderProtocol> tempHeader = (id<ALCollectionListHeaderProtocol>)view;
-            [tempHeader headerWillDisplay];
+        if ([view conformsToProtocol:@protocol(ALCollectionListSupplementaryViewProtocol)] &&
+            [view respondsToSelector:@selector(viewWillDisplay)]) {
+            id<ALCollectionListSupplementaryViewProtocol> tempHeader = (id<ALCollectionListSupplementaryViewProtocol>)view;
+            [tempHeader viewWillDisplay];
         }
     } else if ([elementKind isEqualToString:UICollectionElementKindSectionFooter]) {
-        if ([view conformsToProtocol:@protocol(ALCollectionListFooterProtocol)] &&
-            [view respondsToSelector:@selector(footerWillDisplay)]) {
-            id<ALCollectionListFooterProtocol> tempFooter = (id<ALCollectionListFooterProtocol>)view;
-            [tempFooter footerWillDisplay];
+        if ([view conformsToProtocol:@protocol(ALCollectionListSupplementaryViewProtocol)] &&
+            [view respondsToSelector:@selector(viewWillDisplay)]) {
+            id<ALCollectionListSupplementaryViewProtocol> tempFooter = (id<ALCollectionListSupplementaryViewProtocol>)view;
+            [tempFooter viewWillDisplay];
         }
     }
 }
+
 - (void)collectionView:(UICollectionView *)collectionView
   didEndDisplayingCell:(UICollectionViewCell *)cell
     forItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -339,21 +312,22 @@ willDisplaySupplementaryView:(UICollectionReusableView *)view
         [tempCell cellEndDisplay];
     }
 }
+
 - (void)collectionView:(UICollectionView *)collectionView
 didEndDisplayingSupplementaryView:(UICollectionReusableView *)view
       forElementOfKind:(NSString *)elementKind
            atIndexPath:(NSIndexPath *)indexPath {
     if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
-        if ([view conformsToProtocol:@protocol(ALCollectionListHeaderProtocol)] &&
-            [view respondsToSelector:@selector(headerEndDisplay)]) {
-            id<ALCollectionListHeaderProtocol> tempHeader = (id<ALCollectionListHeaderProtocol>)view;
-            [tempHeader headerEndDisplay];
+        if ([view conformsToProtocol:@protocol(ALCollectionListSupplementaryViewProtocol)] &&
+            [view respondsToSelector:@selector(viewEndDisplay)]) {
+            id<ALCollectionListSupplementaryViewProtocol> tempHeader = (id<ALCollectionListSupplementaryViewProtocol>)view;
+            [tempHeader viewEndDisplay];
         }
     } else if ([elementKind isEqualToString:UICollectionElementKindSectionFooter]) {
-        if ([view conformsToProtocol:@protocol(ALCollectionListFooterProtocol)] &&
-            [view respondsToSelector:@selector(footerEndDisplay)]) {
-            id<ALCollectionListFooterProtocol> tempFooter = (id<ALCollectionListFooterProtocol>)view;
-            [tempFooter footerEndDisplay];
+        if ([view conformsToProtocol:@protocol(ALCollectionListSupplementaryViewProtocol)] &&
+            [view respondsToSelector:@selector(viewEndDisplay)]) {
+            id<ALCollectionListSupplementaryViewProtocol> tempFooter = (id<ALCollectionListSupplementaryViewProtocol>)view;
+            [tempFooter viewEndDisplay];
         }
     }
 }

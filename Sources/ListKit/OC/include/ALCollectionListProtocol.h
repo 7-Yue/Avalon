@@ -4,8 +4,7 @@
 @protocol ALCollectionListDataSectionProtocol;
 @protocol ALCollectionListDataRowProtocol;
 @protocol ALCollectionListCellProtocol;
-@protocol ALCollectionListHeaderProtocol;
-@protocol ALCollectionListFooterProtocol;
+@protocol ALCollectionListSupplementaryViewProtocol;
 
 // MARK: -- ALCollectionListDataProtocol
 NS_SWIFT_UNAVAILABLE("仅OC可用")
@@ -29,8 +28,8 @@ NS_SWIFT_UNAVAILABLE("仅OC可用")
     @property(nonatomic, assign, readonly) double minimumInteritemSpacing;
     @property(nonatomic, assign, readonly) CGSize headerSize;
     @property(nonatomic, assign, readonly) CGSize footerSize;
-    @property(nonatomic, strong, readonly, nullable) Class<ALCollectionListHeaderProtocol> relatedHeader;
-    @property(nonatomic, strong, readonly, nullable) Class<ALCollectionListFooterProtocol> relatedFooter;
+    @property(nonatomic, strong, readonly, nullable) Class<ALCollectionListSupplementaryViewProtocol> relatedHeader;
+    @property(nonatomic, strong, readonly, nullable) Class<ALCollectionListSupplementaryViewProtocol> relatedFooter;
 @end
 
 // MARK: -- ALCollectionListDataRowProtocol
@@ -41,7 +40,6 @@ NS_SWIFT_UNAVAILABLE("仅OC可用")
     @property(nonatomic, strong, readonly, nonnull) Class<ALCollectionListCellProtocol> relatedCell;
 
 @optional
-    @property(nonatomic, assign, readonly) CGSize cellSize;
     @property(nonatomic, copy, readonly, nullable) CGSize (^dynamicCellSize)(CGSize UICollectionViewSize);
 
 @end
@@ -60,30 +58,16 @@ NS_SWIFT_UNAVAILABLE("仅OC可用")
 
 @end
 
-// MARK: -- ALCollectionListHeaderProtocol
+// MARK: -- ALCollectionListSupplementaryViewProtocol
 NS_SWIFT_UNAVAILABLE("仅OC可用")
-@protocol ALCollectionListHeaderProtocol <NSObject>
+@protocol ALCollectionListSupplementaryViewProtocol <NSObject>
 
 @required
-    - (void)headerBuildData:(id<ALCollectionListDataSectionProtocol> _Nullable) data
-                    section:(NSInteger) section;
+    - (void)buildData:(id<ALCollectionListDataSectionProtocol> _Nullable) data
+              section:(NSInteger) section;
 
 @optional
-    - (void)headerWillDisplay;
-    - (void)headerEndDisplay;
-
-@end
-
-// MARK: -- ALTableListFooterProtocol
-NS_SWIFT_UNAVAILABLE("仅OC可用")
-@protocol ALCollectionListFooterProtocol <NSObject>
-
-@required
-    - (void)footerBuild:(id<ALCollectionListDataSectionProtocol> _Nullable) data
-                section:(NSInteger) section;
-
-@optional
-    - (void)footerWillDisplay;
-    - (void)footerEndDisplay;
+    - (void)viewWillDisplay;
+    - (void)viewEndDisplay;
 
 @end

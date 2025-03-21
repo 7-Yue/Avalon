@@ -20,6 +20,9 @@
 		0A5FF3092D8BFDA20051949A /* ALAudioQueueRecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A5FF3022D8BFDA20051949A /* ALAudioQueueRecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A5FF30A2D8BFDA20051949A /* ALAudioQueueConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A5FF3002D8BFDA20051949A /* ALAudioQueueConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A5FF30B2D8BFDA20051949A /* ALAudioQueuePlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A5FF3012D8BFDA20051949A /* ALAudioQueuePlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A5FF30F2D8C14300051949A /* TableListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5FF30E2D8C14300051949A /* TableListProtocol.swift */; };
+		0A5FF3112D8D191D0051949A /* CollectionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5FF3102D8D191D0051949A /* CollectionListView.swift */; };
+		0A5FF3132D8D19250051949A /* CollectionListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5FF3122D8D19250051949A /* CollectionListProtocol.swift */; };
 		0A713D722C91876500FABA2D /* File1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A713D6C2C91876500FABA2D /* File1.swift */; };
 		0A713D752C9193A700FABA2D /* UIView+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A713D732C9193A700FABA2D /* UIView+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A713D762C9193A700FABA2D /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A713D742C9193A700FABA2D /* UIView+Extension.m */; };
@@ -40,7 +43,7 @@
 		0AB6AEC02CF6C35B00345028 /* NSDictionary+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AB6AEBD2CF6C35B00345028 /* NSDictionary+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AB6B03A2D02A0EC00345028 /* WKWebView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6B0392D02A0EC00345028 /* WKWebView+Extension.m */; };
 		0AB6B03B2D02A0EC00345028 /* WKWebView+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AB6B0382D02A0EC00345028 /* WKWebView+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0AD0D1F12CD8EBF7000692B8 /* File3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD0D1EE2CD8EBF7000692B8 /* File3.swift */; };
+		0AD0D1F12CD8EBF7000692B8 /* TableListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD0D1EE2CD8EBF7000692B8 /* TableListView.swift */; };
 		0AD0D1F42CD8EC32000692B8 /* ALTableListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AD0D1F22CD8EC32000692B8 /* ALTableListView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AD0D1F72CD8EC4C000692B8 /* ALTableListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD0D1F62CD8EC4C000692B8 /* ALTableListView.m */; };
 		0AD0D1F92CDA39AB000692B8 /* ALTableListProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AD0D1F82CDA39AB000692B8 /* ALTableListProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -60,6 +63,9 @@
 		0A5FF3022D8BFDA20051949A /* ALAudioQueueRecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALAudioQueueRecoder.h; sourceTree = "<group>"; };
 		0A5FF3042D8BFDA20051949A /* ALAudioQueuePlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALAudioQueuePlayer.m; sourceTree = "<group>"; };
 		0A5FF3052D8BFDA20051949A /* ALAudioQueueRecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALAudioQueueRecoder.m; sourceTree = "<group>"; };
+		0A5FF30E2D8C14300051949A /* TableListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableListProtocol.swift; sourceTree = "<group>"; };
+		0A5FF3102D8D191D0051949A /* CollectionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionListView.swift; sourceTree = "<group>"; };
+		0A5FF3122D8D19250051949A /* CollectionListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionListProtocol.swift; sourceTree = "<group>"; };
 		0A713D6C2C91876500FABA2D /* File1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File1.swift; sourceTree = "<group>"; };
 		0A713D732C9193A700FABA2D /* UIView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		0A713D742C9193A700FABA2D /* UIView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
@@ -81,7 +87,7 @@
 		0AB6AEBE2CF6C35B00345028 /* NSDictionary+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extension.m"; sourceTree = "<group>"; };
 		0AB6B0382D02A0EC00345028 /* WKWebView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebView+Extension.h"; sourceTree = "<group>"; };
 		0AB6B0392D02A0EC00345028 /* WKWebView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+Extension.m"; sourceTree = "<group>"; };
-		0AD0D1EE2CD8EBF7000692B8 /* File3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File3.swift; sourceTree = "<group>"; };
+		0AD0D1EE2CD8EBF7000692B8 /* TableListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableListView.swift; sourceTree = "<group>"; };
 		0AD0D1F22CD8EC32000692B8 /* ALTableListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALTableListView.h; sourceTree = "<group>"; };
 		0AD0D1F62CD8EC4C000692B8 /* ALTableListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALTableListView.m; sourceTree = "<group>"; };
 		0AD0D1F82CDA39AB000692B8 /* ALTableListProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALTableListProtocol.h; sourceTree = "<group>"; };
@@ -313,7 +319,10 @@
 		0AD0D1EF2CD8EBF7000692B8 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				0AD0D1EE2CD8EBF7000692B8 /* File3.swift */,
+				0AD0D1EE2CD8EBF7000692B8 /* TableListView.swift */,
+				0A5FF30E2D8C14300051949A /* TableListProtocol.swift */,
+				0A5FF3102D8D191D0051949A /* CollectionListView.swift */,
+				0A5FF3122D8D19250051949A /* CollectionListProtocol.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -426,7 +435,8 @@
 			files = (
 				0AD0D1F72CD8EC4C000692B8 /* ALTableListView.m in Sources */,
 				0A02AC7A2C9D4A3500EF61D2 /* File2.swift in Sources */,
-				0AD0D1F12CD8EBF7000692B8 /* File3.swift in Sources */,
+				0A5FF30F2D8C14300051949A /* TableListProtocol.swift in Sources */,
+				0AD0D1F12CD8EBF7000692B8 /* TableListView.swift in Sources */,
 				0AB6AE1F2CDB769700345028 /* ALCollectionListView.m in Sources */,
 				0AB6AEBF2CF6C35B00345028 /* NSDictionary+Extension.m in Sources */,
 				0AB6AEB32CF5EBE200345028 /* NSTimer+Extension.m in Sources */,
@@ -439,8 +449,10 @@
 				0A5A79D42CBF62CD002FB980 /* ALPromiseExecute.m in Sources */,
 				0AB6AE8F2CEB37D300345028 /* UIDevice+Extension.m in Sources */,
 				0AB6B03A2D02A0EC00345028 /* WKWebView+Extension.m in Sources */,
+				0A5FF3132D8D19250051949A /* CollectionListProtocol.swift in Sources */,
 				0A713D7A2C919C7500FABA2D /* NSObject+Extension.m in Sources */,
 				0A713D762C9193A700FABA2D /* UIView+Extension.m in Sources */,
+				0A5FF3112D8D191D0051949A /* CollectionListView.swift in Sources */,
 				0A713D722C91876500FABA2D /* File1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

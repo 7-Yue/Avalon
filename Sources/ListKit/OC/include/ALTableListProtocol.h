@@ -3,8 +3,7 @@
 @protocol ALTableListDataSectionProtocol;
 @protocol ALTableListDataRowsProtocol;
 @protocol ALTableListCellProtocol;
-@protocol ALTableListHeaderProtocol;
-@protocol ALTableListFooterProtocol;
+@protocol ALTableListSupplementaryViewProtocol;
 
 // MARK: -- ALTableListDataProtocol
 NS_SWIFT_UNAVAILABLE("仅OC可用")
@@ -25,8 +24,8 @@ NS_SWIFT_UNAVAILABLE("仅OC可用")
     @property(nonatomic, copy, readonly, nullable) NSArray<id <ALTableListDataRowsProtocol>> *rows;
 
 @optional
-    @property(nonatomic, strong, readonly, nullable) Class<ALTableListHeaderProtocol> relatedHeader;
-    @property(nonatomic, strong, readonly, nullable) Class<ALTableListFooterProtocol> relatedFooter;
+    @property(nonatomic, strong, readonly, nullable) Class<ALTableListSupplementaryViewProtocol> relatedHeader;
+    @property(nonatomic, strong, readonly, nullable) Class<ALTableListSupplementaryViewProtocol> relatedFooter;
     @property(nonatomic, assign, readonly) double headerHeight;
     @property(nonatomic, assign, readonly) double footerHeight;
 
@@ -56,34 +55,19 @@ NS_SWIFT_UNAVAILABLE("仅OC可用")
 
 @end
 
-// MARK: -- ALTableListHeaderProtocol
+// MARK: -- ALTableListSupplementaryViewProtocol
 NS_SWIFT_UNAVAILABLE("仅OC可用")
-@protocol ALTableListHeaderProtocol <NSObject>
+@protocol ALTableListSupplementaryViewProtocol <NSObject>
 
 @required
-    - (void)headerBuildData:(id<ALTableListDataSectionProtocol> _Nullable) data
-                    section:(NSInteger) section;
+    - (void)buildData:(id<ALTableListDataSectionProtocol> _Nullable) data
+              section:(NSInteger) section;
 
 @optional
-    - (void)headerWillDisplay;
-    - (void)headerEndDisplay;
+    - (void)viewWillDisplay;
+    - (void)viewEndDisplay;
 
 @end
-
-// MARK: -- ALTableListFooterProtocol
-NS_SWIFT_UNAVAILABLE("仅OC可用")
-@protocol ALTableListFooterProtocol <NSObject>
-
-@required
-    - (void)footerBuild:(id<ALTableListDataSectionProtocol> _Nullable) data
-                section:(NSInteger) section;
-
-@optional
-    - (void)footerWillDisplay;
-    - (void)footerEndDisplay;
-
-@end
-
 
 
 

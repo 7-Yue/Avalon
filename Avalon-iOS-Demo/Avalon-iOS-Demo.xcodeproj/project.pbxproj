@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0A02AC862CA1669200EF61D2 /* TestPromiseOCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A02AC852CA1669200EF61D2 /* TestPromiseOCVC.m */; };
+		0A5FF30D2D8C06060051949A /* TestTableListSwiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5FF30C2D8C06060051949A /* TestTableListSwiftVC.swift */; };
+		0A5FF3152D8D66390051949A /* TestCollectionListSwiftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5FF3142D8D66390051949A /* TestCollectionListSwiftVC.swift */; };
 		0A64AA582D3DF7FB00A2B8D3 /* TestAudioQueuePlayOCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A64AA572D3DF7FB00A2B8D3 /* TestAudioQueuePlayOCVC.m */; };
 		0A64AAEF2D3E3A5A00A2B8D3 /* data_10.dat in Resources */ = {isa = PBXBuildFile; fileRef = 0A64AAD22D3E3A5A00A2B8D3 /* data_10.dat */; };
 		0A64AAF02D3E3A5A00A2B8D3 /* data_34.dat in Resources */ = {isa = PBXBuildFile; fileRef = 0A64AAEA2D3E3A5A00A2B8D3 /* data_34.dat */; };
@@ -99,6 +101,8 @@
 /* Begin PBXFileReference section */
 		0A02AC842CA1669200EF61D2 /* TestPromiseOCVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestPromiseOCVC.h; sourceTree = "<group>"; };
 		0A02AC852CA1669200EF61D2 /* TestPromiseOCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestPromiseOCVC.m; sourceTree = "<group>"; };
+		0A5FF30C2D8C06060051949A /* TestTableListSwiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableListSwiftVC.swift; sourceTree = "<group>"; };
+		0A5FF3142D8D66390051949A /* TestCollectionListSwiftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionListSwiftVC.swift; sourceTree = "<group>"; };
 		0A64AA562D3DF7FB00A2B8D3 /* TestAudioQueuePlayOCVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAudioQueuePlayOCVC.h; sourceTree = "<group>"; };
 		0A64AA572D3DF7FB00A2B8D3 /* TestAudioQueuePlayOCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAudioQueuePlayOCVC.m; sourceTree = "<group>"; };
 		0A64AAC82D3E3A5A00A2B8D3 /* data_0.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = data_0.dat; sourceTree = "<group>"; };
@@ -379,6 +383,8 @@
 				0AB6AE182CDB3EB500345028 /* TestTableListOCVC.m */,
 				0AB6AE372CDCB17700345028 /* TestCollectionListOCVC.h */,
 				0AB6AE382CDCB17700345028 /* TestCollectionListOCVC.m */,
+				0A5FF30C2D8C06060051949A /* TestTableListSwiftVC.swift */,
+				0A5FF3142D8D66390051949A /* TestCollectionListSwiftVC.swift */,
 			);
 			path = TestListView;
 			sourceTree = "<group>";
@@ -580,9 +586,11 @@
 				0AB6AE192CDB3EB500345028 /* TestTableListOCVC.m in Sources */,
 				0A713DB82C94151100FABA2D /* ViewController+MASAdditions.m in Sources */,
 				0A713DB52C94151100FABA2D /* NSArray+MASAdditions.m in Sources */,
+				0A5FF3152D8D66390051949A /* TestCollectionListSwiftVC.swift in Sources */,
 				0A713D8E2C92F73F00FABA2D /* TestUIViewSwiftVC.swift in Sources */,
 				0AB6AEB82CF5EF3100345028 /* TestNSTimerOCVC.m in Sources */,
 				0A713DB42C94151100FABA2D /* MASViewConstraint.m in Sources */,
+				0A5FF30D2D8C06060051949A /* TestTableListSwiftVC.swift in Sources */,
 				0A713DB22C94151100FABA2D /* MASLayoutConstraint.m in Sources */,
 				0A713D922C9411B700FABA2D /* TestUIViewOCVC.m in Sources */,
 				0A64AA582D3DF7FB00A2B8D3 /* TestAudioQueuePlayOCVC.m in Sources */,

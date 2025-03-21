@@ -54,26 +54,26 @@
 @end
 
 //  MARK:   --  TestCollectionListSectionHeader
-@interface TestCollectionListSectionHeader : UICollectionReusableView <ALCollectionListHeaderProtocol>
+@interface TestCollectionListSectionHeader : UICollectionReusableView <ALCollectionListSupplementaryViewProtocol>
 
 @end
 
 @implementation TestCollectionListSectionHeader
 
-- (void)headerBuildData:(id<ALCollectionListDataSectionProtocol>)data section:(NSInteger)section {
+- (void)buildData:(id<ALCollectionListDataSectionProtocol>)data section:(NSInteger)section {
     self.backgroundColor = [UIColor.redColor colorWithAlphaComponent:0.3];
 }
 
 @end
 
 //  MARK:   --  TestCollectionListSectionFooter
-@interface TestCollectionListSectionFooter : UICollectionReusableView <ALCollectionListFooterProtocol>
+@interface TestCollectionListSectionFooter : UICollectionReusableView <ALCollectionListSupplementaryViewProtocol>
 
 @end
 
 @implementation TestCollectionListSectionFooter
 
-- (void)footerBuild:(id<ALCollectionListDataSectionProtocol>)data section:(NSInteger)section {
+- (void)buildData:(id<ALCollectionListDataSectionProtocol>)data section:(NSInteger)section {
     self.backgroundColor = [UIColor.greenColor colorWithAlphaComponent:0.3];
 }
 
@@ -120,11 +120,11 @@
     return CGSizeMake(50, 50);
 }
 
-- (Class<ALCollectionListHeaderProtocol>)relatedHeader {
+- (Class<ALCollectionListSupplementaryViewProtocol>)relatedHeader {
     return TestCollectionListSectionHeader.class;
 }
 
-- (Class<ALCollectionListFooterProtocol>)relatedFooter {
+- (Class<ALCollectionListSupplementaryViewProtocol>)relatedFooter {
     return TestCollectionListSectionFooter.class;
 }
 

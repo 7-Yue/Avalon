@@ -246,12 +246,22 @@
         }
 ,
         {
+          "name": "TestCollectionListSwiftVC.swift",
+          "type": "file"
+        }
+,
+        {
           "name": "TestTableListOCVC.h",
           "type": "file"
         }
 ,
         {
           "name": "TestTableListOCVC.m",
+          "type": "file"
+        }
+,
+        {
+          "name": "TestTableListSwiftVC.swift",
           "type": "file"
         }
 
